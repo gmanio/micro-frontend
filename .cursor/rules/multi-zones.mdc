@@ -1,0 +1,25 @@
+---
+description: Next.js Multi-Zones conventions for this monorepo
+alwaysApply: true
+---
+
+# Multi-Zones
+
+Zones:
+
+| App | Path | Port | Notes |
+|-----|------|------|-------|
+| `apps/home` | `/*` (router) | 3000 | `rewrites` to other zones |
+| `apps/passport` | `/passport` | 3100 | `assetPrefix: /passport-static`; routes under `app/passport` |
+| `apps/storybook` | `/storybook` | 6006 | Next zone; `assetPrefix: /storybook-static`; UI in `public/storybook` |
+
+## Rules
+
+- URL paths must be unique across zones
+- Next secondary zones: use `assetPrefix`, **not** `basePath` (follow with-zones)
+- Cross-zone links: use `<a>`, never Next `<Link>`
+- Next zones: set `serverActions.allowedOrigins` for the user-facing origin (`localhost:3000`)
+- Shared UI: `@repo/ui` (Tailwind + shadcn); import `@repo/ui/globals.css` in app layouts
+- Storybook authoring HMR: `pnpm --filter @repo/storybook dev:stories` on `:6007`
+- Do not add `app/storybook/page.tsx` (conflicts with `public/storybook`)
+- Architecture changes to zones/routing/UI system require an ADR under `docs/adr/`

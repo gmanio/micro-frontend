@@ -1,0 +1,29 @@
+---
+description: Enforce Architecture Decision Records for architecture changes
+alwaysApply: true
+---
+
+# ADR required for architecture changes
+
+When making architecture or cross-cutting changes, add or update an ADR in `docs/adr/` in the **same change**.
+
+## Triggers (ADR required)
+
+- Add/remove/rename a zone, or change path / `assetPrefix` / Storybook `base`
+- Change home rewrite / routing strategy
+- Change monorepo tooling or shared package boundaries
+- Change Storybook hosting (dev vs static zone verification)
+- Change root file allowlist
+
+## Not required
+
+- Bug fixes, copy, single-component UI without structural impact
+
+## How
+
+1. Copy `docs/adr/0000-template.md` → `docs/adr/NNNN-short-kebab-title.md` (next number)
+2. Fill Context / Decision / Consequences / Alternatives
+3. Status: `Accepted` for shipped decisions; mark old ADRs `Superseded` when replaced
+4. Update the index in `docs/adr/README.md`
+
+Never put ADR files at repo root or directly under `docs/` (only under `docs/adr/`).

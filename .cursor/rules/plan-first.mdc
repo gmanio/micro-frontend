@@ -1,0 +1,34 @@
+---
+description: Plan-first workflow — accumulate dated plans and implement from docs
+alwaysApply: true
+---
+
+# Plan-first
+
+Prefer building and changing this repo **from plans and project docs**, not ad-hoc invention.
+
+## Before non-trivial work
+
+1. Add a **new** file under `plans/` — never overwrite or delete older plans.
+2. Filename: `YYYY-MM-DD_HHmmss-short-kebab-slug.plan.md` (local time).
+3. Frontmatter: `created`, `updated`, `status: active`, `overview`, `todos`.
+4. Append a row to `plans/README.md` (newest first).
+
+## Read order while implementing
+
+1. The active / user-attached plan in `plans/`
+2. Accepted ADRs in `docs/adr/`
+3. `docs/GUIDE.md` and `AGENTS.md`
+4. Other `.cursor/rules/*`
+
+If code would contradict an Accepted ADR, update or supersede the ADR in the same change (see `adr.mdc`).
+
+## After implementation
+
+- Mark plan todos complete; set `status: completed` (or `superseded` if replaced).
+- Update `plans/README.md` index statuses.
+- Architecture changes → ADR under `docs/adr/`.
+
+## Trivial exceptions
+
+Typos, one-line fixes, and pure formatting do not need a new plan. When unsure, add a short plan.

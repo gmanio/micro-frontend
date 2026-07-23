@@ -1,0 +1,41 @@
+# Dependencies
+node_modules
+
+# Builds
+.next
+dist
+storybook-static
+storybook-out
+apps/storybook/public/storybook
+.preview
+out
+build
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Turbo / caches
+.turbo
+*.tsbuildinfo
+
+# Test / coverage
+coverage
+
+# Logs / debug
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.swp
+*.swo
+
+# Misc
+*.local

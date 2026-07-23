@@ -1,0 +1,39 @@
+---
+description: Strict root directory file allowlist
+alwaysApply: true
+---
+
+# Root hygiene
+
+Root may only contain these **files**:
+
+- `package.json`
+- `README.md`
+- `AGENTS.md`
+- `.gitignore`
+- `pnpm-workspace.yaml`
+- `pnpm-lock.yaml`
+- `turbo.json`
+
+Root may only contain these **directories**:
+
+- `apps/`
+- `packages/`
+- `docs/`
+- `plans/`
+- `.cursor/`
+- `.git/`
+- `node_modules/` (gitignored)
+
+## Forbidden
+
+- Extra markdown/config at root (`GUIDE.md`, `tsconfig.json`, `.env*`, etc.)
+- Putting ADRs or guides at root — use `docs/GUIDE.md` and `docs/adr/`
+- Putting undated plans at root — use `plans/YYYY-MM-DD_HHmmss-slug.plan.md` only
+
+App env examples belong under the app (e.g. `apps/home/.env.example`).
+
+## Plans
+
+- Accumulate under `plans/` with datetime filenames; do not overwrite history.
+- See `.cursor/rules/plan-first.mdc` and `plans/README.md`.
