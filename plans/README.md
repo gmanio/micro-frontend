@@ -34,6 +34,10 @@ todos:
 
 | File | Name | Status | Created |
 |------|------|--------|---------|
+| [2026-07-23_100918-storybook-all-ui-components.plan.md](./2026-07-23_100918-storybook-all-ui-components.plan.md) | Storybook all UI components | active | 2026-07-23T10:09:18+09:00 |
+| [2026-07-23_100758-add-all-shadcn-ui.plan.md](./2026-07-23_100758-add-all-shadcn-ui.plan.md) | Add all shadcn to @repo/ui | completed | 2026-07-23T10:07:58+09:00 |
+| [2026-07-23_093556-https-local-next-dev.plan.md](./2026-07-23_093556-https-local-next-dev.plan.md) | HTTPS local Next.js dev | completed | 2026-07-23T09:35:56+09:00 |
+| [2026-07-23_093430-add-betterliving-ui.plan.md](./2026-07-23_093430-add-betterliving-ui.plan.md) | Add betterliving-ui package | completed | 2026-07-23T09:34:30+09:00 |
 | [2026-07-23_090323-fix-storybook-blank-ui.plan.md](./2026-07-23_090323-fix-storybook-blank-ui.plan.md) | Fix Storybook blank UI | completed | 2026-07-23T09:03:23+09:00 |
 | [2026-07-23_085308-upgrade-nextjs-16.plan.md](./2026-07-23_085308-upgrade-nextjs-16.plan.md) | Upgrade Next.js 16 | completed | 2026-07-23T08:53:08+09:00 |
 | [2026-07-23_084621-readme-ttarotoggati.plan.md](./2026-07-23_084621-readme-ttarotoggati.plan.md) | README 따로또같이 | completed | 2026-07-23T08:46:21+09:00 |

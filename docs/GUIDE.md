@@ -18,6 +18,8 @@
 
 ## Local development
 
+**Prerequisite:** [mkcert](https://github.com/FiloSottile/mkcert) on PATH (`brew install mkcert && mkcert -install`). Next `dev` uses `--experimental-https`; root `pnpm dev` injects the mkcert CA so home can rewrite to HTTPS zones — ADR [0012](./adr/0012-https-local-next-dev.md).
+
 ```bash
 pnpm install
 pnpm --filter @repo/storybook build:storybook   # once if public/storybook missing
@@ -26,19 +28,25 @@ pnpm dev
 
 | URL | App |
 |-----|-----|
-| http://localhost:3000 | Home (router) |
-| http://localhost:3000/passport | Passport |
-| http://localhost:3000/storybook/ | Storybook UI |
-| http://localhost:3100/passport | Passport direct |
-| http://localhost:6006/storybook/ | Storybook Next zone direct |
-| http://localhost:6007 | Storybook HMR (`dev:stories`) |
+| https://localhost:3000 | Home (router) |
+| https://localhost:3000/passport | Passport |
+| https://localhost:3000/storybook/ | Storybook UI |
+| https://localhost:3100/passport | Passport direct |
+| https://localhost:6006/storybook/ | Storybook Next zone direct |
+| http://localhost:6007 | Storybook HMR (`dev:stories`, HTTP) |
 
-Env: `apps/home/.env.example` → `.env.local` (`PASSPORT_URL`, `STORYBOOK_URL`).
+Env: `apps/home/.env.example` → `.env.local` (`PASSPORT_URL`, `STORYBOOK_URL` as `https://…`).
 
 ### Shared UI (`@repo/ui`)
 
 - Tailwind v4 + shadcn (new-york) — ADR [0007](./adr/0007-tailwind-shadcn-ui.md)
 - Apps: import `@repo/ui/globals.css` (via local `app/globals.css`), `@tailwindcss/postcss`, `transpilePackages: ['@repo/ui']`
+
+### Publishable UI (`@dndproperty/betterliving-ui`)
+
+- Standalone package at `packages/betterliving-ui` — ADR [0011](./adr/0011-betterliving-ui-publishable.md)
+- Build: `pnpm --filter @dndproperty/betterliving-ui build` → `dist/`
+- Publish: GitHub Packages (`pnpm --filter @dndproperty/betterliving-ui publish`) with auth in user/CI `.npmrc`
 
 ### Storybook zone
 
@@ -53,8 +61,8 @@ Env: `apps/home/.env.example` → `.env.local` (`PASSPORT_URL`, `STORYBOOK_URL`)
 
 ```bash
 pnpm dev
-open http://localhost:3000/passport
-open http://localhost:3000/storybook/
+open https://localhost:3000/passport
+open https://localhost:3000/storybook/
 ```
 
 ## Adding a Next.js zone

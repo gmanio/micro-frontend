@@ -4,6 +4,7 @@ node_modules
 # Builds
 .next
 dist
+certificates
 storybook-static
 storybook-out
 apps/storybook/public/storybook

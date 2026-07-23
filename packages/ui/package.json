@@ -7,6 +7,7 @@
     ".": "./src/index.ts",
     "./globals.css": "./src/styles/globals.css",
     "./lib/utils": "./src/lib/utils.ts",
+    "./hooks/*": "./src/hooks/*.ts",
     "./components/ui/*": "./src/components/ui/*.tsx",
     "./button": "./src/components/ui/button.tsx"
   },
@@ -19,11 +20,28 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
+    "@base-ui/react": "1.6.0",
+    "@hookform/resolvers": "^5.4.0",
     "@radix-ui/react-slot": "^1.2.3",
+    "@shadcn/react": "^0.2.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.4.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
     "lucide-react": "^0.525.0",
-    "tailwind-merge": "^3.3.1"
+    "next-themes": "^0.4.6",
+    "radix-ui": "^1.6.4",
+    "react-day-picker": "^10.0.1",
+    "react-hook-form": "^7.82.0",
+    "react-resizable-panels": "^4.12.2",
+    "recharts": "3.8.0",
+    "shadcn": "^4.13.1",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.3.1",
+    "vaul": "^1.1.2",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",

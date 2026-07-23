@@ -44,16 +44,19 @@ AI·사람·팀이 영역을 나눠 확장해도 한 제품으로 자연스럽�
 ## Quick start
 
 ```bash
+# once: brew install mkcert && mkcert -install
 pnpm install
 pnpm --filter @repo/storybook build:storybook
 pnpm dev
 ```
 
+Local Next apps use HTTPS (`--experimental-https`) — ADR [0012](docs/adr/0012-https-local-next-dev.md).
+
 | URL | Zone |
 |-----|------|
-| http://localhost:3000 | Home (라우터) |
-| http://localhost:3000/passport | Passport |
-| http://localhost:3000/storybook/ | Storybook |
+| https://localhost:3000 | Home (라우터) |
+| https://localhost:3000/passport | Passport |
+| https://localhost:3000/storybook/ | Storybook |
 
 ## Structure
 
@@ -62,7 +65,8 @@ plans/             # 날짜·시간 플랜 (append-only)
 apps/home          # :3000  — 도메인 라우터 (같이)
 apps/passport      # :3100  — /passport (따로)
 apps/storybook     # :6006  — /storybook (따로)
-packages/ui        # Tailwind + shadcn (같이)
+packages/ui              # @repo/ui — zone 공유 UI (같이)
+packages/betterliving-ui # @dndproperty/betterliving-ui — 배포용 UI
 docs/adr           # 아키텍처 결정
 ```
 

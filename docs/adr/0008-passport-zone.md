@@ -11,13 +11,13 @@ Need an auth/account surface as its own deployable Multi-Zones app.
 
 - Add **`apps/passport`** Next.js App Router zone.
 - Path **`/passport`**, port **3100**, **`assetPrefix: '/passport-static'`** (no `basePath`).
-- Home rewrites `/passport`, `/passport/:path+`, `/passport-static/_next/:path+` via `PASSPORT_URL` (`http://localhost:3100`).
+- Home rewrites `/passport`, `/passport/:path+`, `/passport-static/_next/:path+` via `PASSPORT_URL` (`https://localhost:3100` in local HTTPS dev — ADR [0012](./0012-https-local-next-dev.md)).
 - Uses `@repo/ui` (shadcn Button) + Tailwind globals.
 
 ## Consequences
 
 - Cross-zone links use `<a href="/passport">`.
-- `apps/home/.env*` includes `PASSPORT_URL=http://localhost:3100`.
+- `apps/home/.env*` includes `PASSPORT_URL=https://localhost:3100` (local HTTPS — ADR [0012](./0012-https-local-next-dev.md)).
 
 ## Alternatives considered
 

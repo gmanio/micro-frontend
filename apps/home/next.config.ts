@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-const PASSPORT_URL = process.env.PASSPORT_URL ?? "http://localhost:3100";
-const STORYBOOK_URL = process.env.STORYBOOK_URL ?? "http://localhost:6006";
+const PASSPORT_URL = process.env.PASSPORT_URL ?? "https://localhost:3100";
+const STORYBOOK_URL = process.env.STORYBOOK_URL ?? "https://localhost:6006";
 
 const nextConfig: NextConfig = {
   // Storybook static UI uses assets under /storybook/

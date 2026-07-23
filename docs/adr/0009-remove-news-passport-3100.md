@@ -12,7 +12,7 @@
 ## Decision
 
 - Delete **`apps/news`** and all home rewrites / env for `NEWS_URL`.
-- Run **`apps/passport`** on port **3100**; `PASSPORT_URL=http://localhost:3100`.
+- Run **`apps/passport`** on port **3100**; `PASSPORT_URL=https://localhost:3100` (local HTTPS — ADR [0012](./0012-https-local-next-dev.md)).
 - Remaining product zones: home, passport, storybook.
 
 ## Consequences

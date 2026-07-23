@@ -25,7 +25,8 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 | `apps/home` | Router `:3000` |
 | `apps/passport` | `/passport` `:3100` |
 | `apps/storybook` | `/storybook` `:6006` |
-| `packages/ui` | Tailwind + shadcn shared UI |
+| `packages/ui` | Tailwind + shadcn shared UI (`@repo/ui`, zones) |
+| `packages/betterliving-ui` | Publishable Better Living UI (`@dndproperty/betterliving-ui`) |
 | `docs/adr/` | ADRs |
 
 ## Multi-Zones checklist
@@ -33,14 +34,17 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 - [ ] Unique paths; `assetPrefix` not `basePath`
 - [ ] Cross-zone `<a>` only
 - [ ] `allowedOrigins` includes user-facing host
-- [ ] Env under `apps/home/`
+- [ ] Env under `apps/home/` (`https://localhost:…` for local zone URLs)
 - [ ] Apps using UI import globals CSS + transpile `@repo/ui`
+- [ ] Next `dev` uses `--experimental-https` (mkcert); see ADR 0012
 
 ## Commands
 
 ```bash
+# brew install mkcert && mkcert -install   # once
 pnpm install
 pnpm --filter @repo/storybook build:storybook
+pnpm --filter @dndproperty/betterliving-ui build
 pnpm dev
 pnpm --filter @repo/storybook dev:stories
 ```
