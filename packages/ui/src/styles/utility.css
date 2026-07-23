@@ -1,0 +1,35 @@
+@utility bg-gradient-mix {
+  background-image: linear-gradient(
+    to right,
+    var(--color-one),
+    var(--color-two)
+  );
+}
+
+@utility text-gradient-mix {
+  background-image: linear-gradient(
+    to right,
+    var(--color-one),
+    var(--color-two)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Mix --color-two at 50% into --color-one (hex / any <color> OK) */
+@utility bg-color-mix {
+  background-color: color-mix(
+    in oklch,
+    var(--color-one),
+    var(--color-two) 50%
+  );
+}
+
+/* Mix --color-two at 10% into --color-one */
+@utility bg-mix-color {
+  background-color: color-mix(
+    in srgb,
+    var(--color-one),
+    var(--color-two)
+  );
+}

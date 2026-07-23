@@ -11,7 +11,7 @@ Zones:
 |-----|------|------|-------|
 | `apps/home` | `/*` (router) | 3000 | `rewrites` to other zones; HTTPS in `dev` |
 | `apps/passport` | `/passport` | 3100 | `assetPrefix: /passport-static`; routes under `app/passport` |
-| `apps/storybook` | `/storybook` | 6006 | Next zone; `assetPrefix: /storybook-static`; UI in `public/storybook` |
+| `apps/storybook` | `/storybook` | 6006 / 6007 | Next static zone `:6006`; Vite HMR `:6007` (local default via home) |
 
 ## Rules
 
@@ -21,6 +21,7 @@ Zones:
 - Next zones: set `serverActions.allowedOrigins` for the user-facing origin (`localhost:3000`)
 - Local **Next** `dev` uses HTTPS (`next dev --experimental-https`); zone URLs are `https://localhost:<port>` — ADR [0012](../../docs/adr/0012-https-local-next-dev.md)
 - Shared UI: `@repo/ui` (Tailwind + shadcn); import `@repo/ui/globals.css` in app layouts
-- Storybook authoring HMR: `pnpm --filter @repo/storybook dev:stories` on `:6007` (HTTP; not a Next app)
+- Local Storybook through home uses Vite HMR (`STORYBOOK_URL=http://localhost:6007`; home strips `/storybook` prefix) — ADR [0013](../../docs/adr/0013-storybook-zone-hmr-dev.md)
+- Storybook Vite is HTTP; `pnpm --filter @repo/storybook dev` starts Next `:6006` + Vite `:6007`
 - Do not add `app/storybook/page.tsx` (conflicts with `public/storybook`)
 - Architecture changes to zones/routing/UI system require an ADR under `docs/adr/`

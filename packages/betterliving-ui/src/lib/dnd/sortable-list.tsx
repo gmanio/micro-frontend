@@ -49,7 +49,9 @@ function SortableListProvider<T>({
   restrictToBoundary = true,
   axis = "free",
 }: SortableListProviderProps<T>) {
-  const containerRef = React.useRef<HTMLDivElement>(null)
+  const [containerEl, setContainerEl] = React.useState<HTMLDivElement | null>(
+    null
+  )
 
   const modifiers = React.useMemo(() => {
     const next = []
@@ -57,16 +59,16 @@ function SortableListProvider<T>({
     if (axis === "vertical") next.push(RestrictToVerticalAxis)
     if (axis === "horizontal") next.push(RestrictToHorizontalAxis)
 
-    if (restrictToBoundary) {
+    if (restrictToBoundary && containerEl) {
       next.push(
         RestrictToElement.configure({
-          element: () => containerRef.current,
+          element: containerEl,
         })
       )
     }
 
     return next.length > 0 ? next : undefined
-  }, [axis, restrictToBoundary])
+  }, [axis, restrictToBoundary, containerEl])
 
   return (
     <DragDropProvider
@@ -78,7 +80,7 @@ function SortableListProvider<T>({
       }}
     >
       <div
-        ref={containerRef}
+        ref={setContainerEl}
         data-slot="sortable-list"
         data-axis={axis}
         className={cn("relative", className)}
@@ -113,6 +115,15 @@ type SortableItemProps = {
   children: React.ReactNode | ((props: SortableItemRenderProps) => React.ReactNode)
 }
 
+function SortableItemChildren({
+  children,
+  ...renderProps
+}: SortableItemRenderProps & {
+  children: (props: SortableItemRenderProps) => React.ReactNode
+}) {
+  return children(renderProps)
+}
+
 /**
  * DnD shell around each list item. Render your card/content as children —
  * do not put dnd-kit hooks inside the card itself.
@@ -140,13 +151,6 @@ function SortableItem({
   const isRenderProp = typeof children === "function"
   const showHandle = withHandle && !isRenderProp && !disabled
 
-  const renderProps: SortableItemRenderProps = {
-    ref,
-    handleRef,
-    isDragging,
-    isDropTarget,
-  }
-
   return (
     <div
       ref={ref}
@@ -165,7 +169,18 @@ function SortableItem({
           <SortableHandle handleRef={handleRef} />
         </div>
       ) : null}
-      {isRenderProp ? children(renderProps) : children}
+      {isRenderProp ? (
+        <SortableItemChildren
+          ref={ref}
+          handleRef={handleRef}
+          isDragging={isDragging}
+          isDropTarget={isDropTarget}
+        >
+          {children}
+        </SortableItemChildren>
+      ) : (
+        children
+      )}
     </div>
   )
 }

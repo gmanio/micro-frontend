@@ -24,7 +24,7 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 | `plans/` | Dated plans |
 | `apps/home` | Router `:3000` |
 | `apps/passport` | `/passport` `:3100` |
-| `apps/storybook` | `/storybook` `:6006` |
+| `apps/storybook` | `/storybook` `:6006` + Vite HMR `:6007` |
 | `packages/ui` | Tailwind + shadcn shared UI (`@repo/ui`, zones) |
 | `packages/betterliving-ui` | Publishable Better Living UI (`@dndproperty/betterliving-ui`) |
 | `docs/adr/` | ADRs |
@@ -34,9 +34,10 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 - [ ] Unique paths; `assetPrefix` not `basePath`
 - [ ] Cross-zone `<a>` only
 - [ ] `allowedOrigins` includes user-facing host
-- [ ] Env under `apps/home/` (`https://localhost:…` for local zone URLs)
+- [ ] Env under `apps/home/` (`STORYBOOK_URL=http://localhost:6007` for live HMR; `https://localhost:6006` for static)
 - [ ] Apps using UI import globals CSS + transpile `@repo/ui`
 - [ ] Next `dev` uses `--experimental-https` (mkcert); see ADR 0012
+- [ ] Storybook Vite HMR via home (`STORYBOOK_URL` `:6007` strips `/storybook` prefix); see ADR 0013
 
 ## Commands
 
@@ -46,5 +47,7 @@ pnpm install
 pnpm --filter @repo/storybook build:storybook
 pnpm --filter @dndproperty/betterliving-ui build
 pnpm dev
+# optional escapes:
 pnpm --filter @repo/storybook dev:stories
+pnpm --filter @repo/storybook dev:next
 ```

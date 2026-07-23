@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState, type FormEvent } from "react"
+import { useRef, useState, type FormEvent } from "react"
 import { ChevronDownIcon, PlusIcon, Trash2Icon } from "lucide-react"
 
 import { Button } from "../button"
@@ -52,11 +52,6 @@ function ListIdField({
 }) {
   const [draft, setDraft] = useState(listId)
   const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    setDraft(listId)
-    setError(null)
-  }, [listId])
 
   function commit() {
     const next = draft.trim()
@@ -462,6 +457,7 @@ export function DisplayUnitListEditor({
                         {isEditing ? (
                           <>
                             <ListIdField
+                              key={list.id}
                               listId={list.id}
                               allListIds={orderedLists.map((item) => item.id)}
                               onCommit={(nextId) =>

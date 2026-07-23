@@ -28,6 +28,16 @@ html = html
   .replaceAll('url("./', 'url("/storybook/')
   .replaceAll("import './", "import '/storybook/")
   .replaceAll('import "./', 'import "/storybook/');
+
+// Runtime still fetches STORY_INDEX_PATH = "./index.json". On URL /storybook
+// (no slash) that resolves to /index.json on the home origin → 404. Normalize
+// the browser path before the manager boots (Next redirects looped; see ADR 0010).
+const slashGuard =
+  "<script>if(location.pathname===\"/storybook\")location.replace(\"/storybook/\"+location.search+location.hash);</script>";
+if (!html.includes('pathname==="/storybook"')) {
+  html = html.replace("<head>", `<head>${slashGuard}`);
+}
+
 writeFileSync(indexPath, html);
 
-console.log(`Synced ${outDir} → ${publicDir} (absolute /storybook/ asset paths)`);
+console.log(`Synced ${outDir} → ${publicDir} (absolute /storybook/ asset paths + slash guard)`);

@@ -125,19 +125,39 @@
   },
   "typesVersions": {
     "*": {
-      "lib/dnd": ["./dist/lib/dnd/index.d.ts"],
-      "lib/utils": ["./dist/lib/utils.d.ts"],
-      "components/UnitCard": ["./dist/components/UnitCard/index.d.ts"],
+      "lib/dnd": [
+        "./dist/lib/dnd/index.d.ts"
+      ],
+      "lib/utils": [
+        "./dist/lib/utils.d.ts"
+      ],
+      "components/UnitCard": [
+        "./dist/components/UnitCard/index.d.ts"
+      ],
       "components/DisplayUnitEditor": [
         "./dist/components/DisplayUnitEditor/index.d.ts"
       ],
-      "components/badge": ["./dist/components/badge.d.ts"],
-      "components/button": ["./dist/components/button.d.ts"],
-      "components/card": ["./dist/components/card.d.ts"],
-      "components/input": ["./dist/components/input.d.ts"],
-      "components/label": ["./dist/components/label.d.ts"],
-      "components/skeleton": ["./dist/components/skeleton.d.ts"],
-      "types/display-unit-list": ["./dist/types/display-unit-list.d.ts"]
+      "components/badge": [
+        "./dist/components/badge.d.ts"
+      ],
+      "components/button": [
+        "./dist/components/button.d.ts"
+      ],
+      "components/card": [
+        "./dist/components/card.d.ts"
+      ],
+      "components/input": [
+        "./dist/components/input.d.ts"
+      ],
+      "components/label": [
+        "./dist/components/label.d.ts"
+      ],
+      "components/skeleton": [
+        "./dist/components/skeleton.d.ts"
+      ],
+      "types/display-unit-list": [
+        "./dist/types/display-unit-list.d.ts"
+      ]
     }
   },
   "publishConfig": {

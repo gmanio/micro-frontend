@@ -14,14 +14,13 @@ ADR 0004 hosted Storybook as a Vite/Storybook-CLI zone. That worked only via ad-
 - Use **`assetPrefix: '/storybook-static'`** (no `basePath`), same shape as news.
 - Serve Storybook UI from **`public/storybook/`** (output of `build:storybook` with Vite `base: '/storybook/'`).
 - Next.js does not directory-index `public/storybook`; add rewrites `/storybook` and `/storybook/` → `/storybook/index.html`, plus `skipTrailingSlashRedirect` on the storybook app and home.
-- Author stories with **`@storybook/nextjs-vite`**; HMR via `dev:stories` on **:6007**.
+- Author stories with **`@storybook/nextjs-vite`**; HMR via Vite on **:6007** (`base: /storybook/`).
 - Home rewrites `/storybook`, `/storybook/:path+`, `/storybook-static/_next/:path+` → `STORYBOOK_URL`.
-- Trailing-slash / Vite `base` / absolute manager assets: [0010](./0010-storybook-trailing-slash-base.md).
+- **Local default** proxies `/storybook` to Vite for live updates — [0013](./0013-storybook-zone-hmr-dev.md). Trailing-slash / absolute manager assets: [0010](./0010-storybook-trailing-slash-base.md).
 
 ## Consequences
 
-- `pnpm dev` Multi-Zones path matches news (Next → Next).
-- Storybook HMR is not through home; use `:6007` for day-to-day story work.
+- `pnpm dev` Multi-Zones path matches news (Next → Next) for static verification; local Storybook UI defaults to Vite HMR through home.
 - `public/storybook` is a build artifact (gitignored); `predev` builds once if missing.
 
 ## Alternatives considered

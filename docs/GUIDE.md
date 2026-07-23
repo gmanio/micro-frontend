@@ -30,12 +30,12 @@ pnpm dev
 |-----|-----|
 | https://localhost:3000 | Home (router) |
 | https://localhost:3000/passport | Passport |
-| https://localhost:3000/storybook/ | Storybook UI |
+| https://localhost:3000/storybook/ | Storybook UI (live HMR via Vite — ADR [0013](./adr/0013-storybook-zone-hmr-dev.md)) |
 | https://localhost:3100/passport | Passport direct |
-| https://localhost:6006/storybook/ | Storybook Next zone direct |
-| http://localhost:6007 | Storybook HMR (`dev:stories`, HTTP) |
+| https://localhost:6006/storybook/ | Storybook Next static zone direct |
+| http://localhost:6007/ | Storybook Vite HMR direct (HTTP) |
 
-Env: `apps/home/.env.example` → `.env.local` (`PASSPORT_URL`, `STORYBOOK_URL` as `https://…`).
+Env: `apps/home/.env.example` → `.env.local`. Default `STORYBOOK_URL=http://localhost:6007` (live). Use `https://localhost:6006` for static-zone checks.
 
 ### Shared UI (`@repo/ui`)
 
@@ -50,8 +50,9 @@ Env: `apps/home/.env.example` → `.env.local` (`PASSPORT_URL`, `STORYBOOK_URL` 
 
 ### Storybook zone
 
-- Next.js `:6006`, `assetPrefix: /storybook-static` — ADR [0006](./adr/0006-nextjs-storybook-zone.md)
-- HMR: `pnpm --filter @repo/storybook dev:stories` (`:6007`)
+- Next.js `:6006` serves built `public/storybook` — ADR [0006](./adr/0006-nextjs-storybook-zone.md)
+- Local default: home proxies `/storybook` to Vite `:6007` (HMR, no rebuild) — ADR [0013](./adr/0013-storybook-zone-hmr-dev.md)
+- `pnpm --filter @repo/storybook dev` starts Next + Vite together
 
 ### Passport zone
 

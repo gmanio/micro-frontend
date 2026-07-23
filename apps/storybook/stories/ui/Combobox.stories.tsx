@@ -21,16 +21,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Combobox items={frameworks}>
+    <Combobox>
       <ComboboxInput placeholder="Select a framework..." className="w-64" />
       <ComboboxContent>
         <ComboboxEmpty>No framework found.</ComboboxEmpty>
         <ComboboxList>
-          {(item) => (
+          {frameworks.map((item) => (
             <ComboboxItem key={item} value={item}>
               {item}
             </ComboboxItem>
-          )}
+          ))}
         </ComboboxList>
       </ComboboxContent>
     </Combobox>

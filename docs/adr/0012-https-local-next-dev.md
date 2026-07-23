@@ -13,7 +13,7 @@ Local Multi-Zones previously used plain HTTP. Features that require a secure con
 - Zone rewrite defaults / `.env*`: **`https://localhost:3100`**, **`https://localhost:6006`**.
 - Root `pnpm dev` sets **`NODE_EXTRA_CA_CERTS=$(mkcert -CAROOT)/rootCA.pem`** so home’s Node rewrites trust mkcert certs.
 - Generated `certificates/` dirs are gitignored.
-- **Out of scope:** Storybook CLI HMR (`dev:stories` on `:6007`) stays HTTP; `next start` / production remain deployment HTTPS.
+- **Out of scope:** Storybook CLI HMR (`:6007`, path `/storybook/`) stays HTTP; `next start` / production remain deployment HTTPS. Local home may rewrite `/storybook` to that HTTP Vite origin (server-side) — ADR [0013](./0013-storybook-zone-hmr-dev.md).
 
 ## Consequences
 

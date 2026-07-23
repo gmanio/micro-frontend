@@ -56,7 +56,7 @@ Local Next apps use HTTPS (`--experimental-https`) — ADR [0012](docs/adr/0012-
 |-----|------|
 | https://localhost:3000 | Home (라우터) |
 | https://localhost:3000/passport | Passport |
-| https://localhost:3000/storybook/ | Storybook |
+| https://localhost:3000/storybook/ | Storybook (local HMR via Vite — ADR [0013](docs/adr/0013-storybook-zone-hmr-dev.md)) |
 
 ## Structure
 
@@ -64,7 +64,7 @@ Local Next apps use HTTPS (`--experimental-https`) — ADR [0012](docs/adr/0012-
 plans/             # 날짜·시간 플랜 (append-only)
 apps/home          # :3000  — 도메인 라우터 (같이)
 apps/passport      # :3100  — /passport (따로)
-apps/storybook     # :6006  — /storybook (따로)
+apps/storybook     # :6006 static + :6007 Vite HMR — /storybook
 packages/ui              # @repo/ui — zone 공유 UI (같이)
 packages/betterliving-ui # @dndproperty/betterliving-ui — 배포용 UI
 docs/adr           # 아키텍처 결정

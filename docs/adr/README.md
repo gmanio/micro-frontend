@@ -19,6 +19,7 @@ ADRs live **only** in this folder: `docs/adr/`.
 | [0010](./0010-storybook-trailing-slash-base.md) | Storybook asset paths under /storybook | Accepted |
 | [0011](./0011-betterliving-ui-publishable.md) | Publishable @dndproperty/betterliving-ui | Accepted |
 | [0012](./0012-https-local-next-dev.md) | HTTPS for local Next.js Multi-Zones | Accepted |
+| [0013](./0013-storybook-zone-hmr-dev.md) | Storybook zone HMR in local dev | Accepted |
 
 ## When to write
 

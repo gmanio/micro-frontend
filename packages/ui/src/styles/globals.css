@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "utility.css";
+@import "liquid.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -117,6 +119,10 @@
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  * [data-slot="command-item"] {
+    /* @apply cursor-pointer; */
     cursor: pointer;
   }
 }

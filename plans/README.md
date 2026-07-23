@@ -34,7 +34,8 @@ todos:
 
 | File | Name | Status | Created |
 |------|------|--------|---------|
-| [2026-07-23_100918-storybook-all-ui-components.plan.md](./2026-07-23_100918-storybook-all-ui-components.plan.md) | Storybook all UI components | active | 2026-07-23T10:09:18+09:00 |
+| [2026-07-23_110023-storybook-zone-hmr-dev.plan.md](./2026-07-23_110023-storybook-zone-hmr-dev.plan.md) | Storybook zone live HMR | completed | 2026-07-23T11:00:23+09:00 |
+| [2026-07-23_100918-storybook-all-ui-components.plan.md](./2026-07-23_100918-storybook-all-ui-components.plan.md) | Storybook all UI components | completed | 2026-07-23T10:09:18+09:00 |
 | [2026-07-23_100758-add-all-shadcn-ui.plan.md](./2026-07-23_100758-add-all-shadcn-ui.plan.md) | Add all shadcn to @repo/ui | completed | 2026-07-23T10:07:58+09:00 |
 | [2026-07-23_093556-https-local-next-dev.plan.md](./2026-07-23_093556-https-local-next-dev.plan.md) | HTTPS local Next.js dev | completed | 2026-07-23T09:35:56+09:00 |
 | [2026-07-23_093430-add-betterliving-ui.plan.md](./2026-07-23_093430-add-betterliving-ui.plan.md) | Add betterliving-ui package | completed | 2026-07-23T09:34:30+09:00 |

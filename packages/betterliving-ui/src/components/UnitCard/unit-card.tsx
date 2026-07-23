@@ -1,84 +1,9 @@
-import type * as React from "react"
-
 import { Badge } from "../badge"
 import { Skeleton } from "../skeleton"
 import { cn } from "../../lib/utils"
+import type { UnitCardProps } from "./unit-card-data"
 
-type LocaleText = {
-  ko: string
-  en: string
-}
-
-type Locale = keyof LocaleText
-
-type Unit = {
-  unitId: string
-  siteId: string
-  unitLabel: LocaleText
-  images: string[]
-  unitNm: LocaleText
-  unitDesc: LocaleText
-  serviceTitle1: LocaleText
-  unitConfig: LocaleText
-  rentAmtStandard: number
-  rentAmt12: number
-  coordinate: { lat: number; lon: number }
-  externalFl: boolean
-  representativeImg: string
-  siteNm: LocaleText
-  soldOut: boolean
-}
-
-type UnitCardData = {
-  id: string
-  title: string
-  options: string
-  description?: string
-  totalAmount: string
-  month: string
-  imgs: string[]
-  unitLabels?: string[]
-  soldOut?: boolean
-  href?: string
-}
-
-type UnitCardProps = React.ComponentProps<"a"> & {
-  data: UnitCardData
-}
-
-function formatWon(amount: number) {
-  return `${amount.toLocaleString("ko-KR")} 원`
-}
-
-function getUnitLabels(unit: Unit, locale: Locale): string[] {
-  const labels = unit.unitLabel[locale]?.trim()
-  if (!labels) return []
-  return labels
-    .split(",")
-    .map((label) => label.trim())
-    .filter(Boolean)
-}
-
-function toUnitCardData(unit: Unit, locale: Locale = "ko"): UnitCardData {
-  const description = unit.serviceTitle1[locale]?.trim()
-
-  return {
-    id: unit.unitId,
-    title: unit.unitNm[locale],
-    imgs: unit.representativeImg
-      ? [unit.representativeImg]
-      : unit.images.slice(0, 1),
-    description: description || undefined,
-    options: unit.unitConfig[locale] ?? "",
-    totalAmount: formatWon(unit.rentAmt12),
-    month: "/월",
-    unitLabels: getUnitLabels(unit, locale),
-    soldOut: unit.soldOut,
-    href: `/units/${unit.unitId}`,
-  }
-}
-
-function UnitCard({ className, data, ...props }: UnitCardProps) {
+export function UnitCard({ className, data, ...props }: UnitCardProps) {
   const imageUrl = data.imgs[0]
   const labels = data.unitLabels?.slice(0, 2) ?? []
 
@@ -160,7 +85,7 @@ function UnitCard({ className, data, ...props }: UnitCardProps) {
   )
 }
 
-function UnitCardSkeleton({ className }: { className?: string }) {
+export function UnitCardSkeleton({ className }: { className?: string }) {
   return (
     <div className={cn("flex w-[270px] flex-col pb-4", className)}>
       <Skeleton className="aspect-video w-full rounded-lg" />
@@ -170,6 +95,3 @@ function UnitCardSkeleton({ className }: { className?: string }) {
     </div>
   )
 }
-
-export { UnitCard, UnitCardSkeleton, toUnitCardData, formatWon }
-export type { Unit, UnitCardData, UnitCardProps, LocaleText, Locale }

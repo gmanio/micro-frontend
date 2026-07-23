@@ -12,14 +12,15 @@ Static Storybook manager HTML ships with relative asset URLs (`./sb-manager/...`
 
 - Keep `skipTrailingSlashRedirect: true`; rewrite both `/storybook` and `/storybook/` to the static `index.html`.
 - After `storybook build`, **rewrite manager `index.html` asset URLs to absolute `/storybook/...`** in `sync-storybook-public.mjs`.
-- Vite `base`: **`/storybook/` only for PRODUCTION**; DEVELOPMENT (`dev:stories`) uses `/`.
+- Also inject a tiny **client slash guard** in `index.html`: if `pathname === "/storybook"`, `location.replace("/storybook/...")`. Absolute tags alone are not enough — the manager still fetches `./index.json`, which becomes `/index.json` on the home origin when the document URL has no trailing slash.
+- Vite `base`: **`/storybook/` for production builds**; development Vite serves at `/` and home strips the `/storybook` prefix when proxying to `:6007` — see [0013](./0013-storybook-zone-hmr-dev.md).
 - Set **`staticDirs: []`** so Storybook does not copy Next `public/` into the build output; clean `storybook-out` and `public/storybook` before each build.
 
 ## Consequences
 
-- `/storybook` and `/storybook/` both load the manager (no slash dependency).
-- `pnpm --filter @repo/storybook dev:stories` serves at `http://localhost:6007/`.
-- Zone path remains `localhost:3000/storybook/` after `build:storybook`.
+- `/storybook` redirects to `/storybook/` so `./index.json` resolves under `/storybook/`.
+- Storybook Vite serves at `http://localhost:6007/` (proxied from home `/storybook/`).
+- Zone path remains `localhost:3000/storybook/` (live via Vite in local default, or static after `build:storybook`).
 
 ## Alternatives considered
 
