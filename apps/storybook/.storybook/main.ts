@@ -52,6 +52,14 @@ const config: StorybookConfig = {
             replacement: path.join(uiSrc, "styles/globals.css"),
           },
           {
+            find: "@repo/ui/utility.css",
+            replacement: path.join(uiSrc, "styles/utility.css"),
+          },
+          {
+            find: "@repo/ui/liquid.css",
+            replacement: path.join(uiSrc, "styles/liquid.css"),
+          },
+          {
             find: "@repo/ui/components",
             replacement: path.join(uiSrc, "components"),
           },

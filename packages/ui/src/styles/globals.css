@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "utility.css";
-@import "liquid.css";
+@import "@repo/ui/utility.css";
+@import "@repo/ui/liquid.css";
 
 @custom-variant dark (&:is(.dark *));
 
