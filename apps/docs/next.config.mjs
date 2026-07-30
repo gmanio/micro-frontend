@@ -14,10 +14,6 @@ const config = {
   basePath: basePath || undefined,
   assetPrefix: basePath || undefined,
   transpilePackages: ["@dndproperty/betterliving-ui"],
-  // Next 16 still probes for `typescript` oddly under pnpm + TS 7; typecheck via `pnpm --filter @repo/docs types:check`.
-  typescript: {
-    ignoreBuildErrors: true,
-  },
 };
 
 export default withMDX(config);
