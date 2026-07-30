@@ -2,11 +2,12 @@
   "title": "Documentation",
   "pages": [
     "index",
-    "---Flows---",
-    "...flows",
-    "---Guides---",
+    "---회원---",
+    "...member",
+    "---계약---",
+    "...contract",
+    "---SDK---",
     "...guides",
-    "---API---",
     "...api",
     "---Meta---",
     "changelog"

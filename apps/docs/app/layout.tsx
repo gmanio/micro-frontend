@@ -9,11 +9,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Better Living SDK",
-    template: "%s | Better Living SDK",
+    default: "Better Living",
+    template: "%s | Better Living",
   },
   description:
-    "Better Living SDK — Passport auth flows and responsive layout helpers.",
+    "Better Living — contract and member domain docs, SDK responsive helpers.",
 };
 
 export default function Layout({ children }: LayoutProps<"/">) {

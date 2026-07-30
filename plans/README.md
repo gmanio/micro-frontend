@@ -34,6 +34,9 @@ todos:
 
 | File | Name | Status | Created |
 |------|------|--------|---------|
+| [2026-07-30_160918-docs-domain-ia-modusign.plan.md](./2026-07-30_160918-docs-domain-ia-modusign.plan.md) | Docs domain IA + ModuSign | completed | 2026-07-30T16:09:18+09:00 |
+| [2026-07-30_155305-betterliving-contract-docs.plan.md](./2026-07-30_155305-betterliving-contract-docs.plan.md) | Better Living contract docs | completed | 2026-07-30T15:53:05+09:00 |
+| [2026-07-30_154058-betterliving-i18n-docs.plan.md](./2026-07-30_154058-betterliving-i18n-docs.plan.md) | Better Living i18n docs | completed | 2026-07-30T15:40:58+09:00 |
 | [2026-07-30_151836-sdk-docs-auth-flows.plan.md](./2026-07-30_151836-sdk-docs-auth-flows.plan.md) | SDK docs auth flows | completed | 2026-07-30T15:18:36+09:00 |
 | [2026-07-30_100343-betterliving-ui-docs-site.plan.md](./2026-07-30_100343-betterliving-ui-docs-site.plan.md) | Betterliving UI docs site | completed | 2026-07-30T10:03:43+09:00 |
 | [2026-07-24_112050-upgrade-tw-ts-next.plan.md](./2026-07-24_112050-upgrade-tw-ts-next.plan.md) | Upgrade TW / TS / Next | completed | 2026-07-24T11:20:50+09:00 |

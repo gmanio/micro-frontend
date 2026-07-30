@@ -8,18 +8,18 @@ export function baseOptions(): BaseLayoutProps {
     },
     links: [
       {
-        text: "Flows",
-        url: "/docs/flows/overview",
+        text: "계약",
+        url: "/docs/contract/overview",
         active: "nested-url",
       },
       {
-        text: "Guides",
+        text: "회원",
+        url: "/docs/member/overview",
+        active: "nested-url",
+      },
+      {
+        text: "SDK",
         url: "/docs/guides/introduction",
-        active: "nested-url",
-      },
-      {
-        text: "API",
-        url: "/docs/api/responsive",
         active: "nested-url",
       },
     ],

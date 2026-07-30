@@ -1,4 +1,4 @@
-export const appName = "Better Living SDK";
+export const appName = "Better Living";
 export const docsRoute = "/docs";
 
 export const gitConfig = {

@@ -1,4 +1,4 @@
 {
-  "title": "Flows",
+  "title": "회원",
   "pages": ["overview", "signup", "login", "logout"]
 }

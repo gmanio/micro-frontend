@@ -8,31 +8,30 @@ export default function HomePage() {
           @dndproperty/betterliving-sdk · 0.1.0
         </p>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Better Living SDK
+          Better Living
         </h1>
         <p className="text-fd-muted-foreground text-lg">
-          Passport 회원 플로우 문서와 Better Living SDK 반응형 레이아웃 헬퍼. GitHub
-          Packages로 배포합니다.
+          계약·회원 도메인 문서와 SDK 반응형 헬퍼. GitHub Packages로 배포합니다.
         </p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Link
-          href="/docs/flows/overview"
+          href="/docs/contract/overview"
           className="bg-fd-primary text-fd-primary-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium"
         >
-          Flows
+          계약
+        </Link>
+        <Link
+          href="/docs/member/overview"
+          className="border-fd-border hover:bg-fd-accent inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
+        >
+          회원
         </Link>
         <Link
           href="/docs/guides/installation"
           className="border-fd-border hover:bg-fd-accent inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
         >
-          Install
-        </Link>
-        <Link
-          href="/docs/api/responsive"
-          className="border-fd-border hover:bg-fd-accent inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
-        >
-          API
+          SDK Install
         </Link>
       </div>
       <pre className="border-fd-border bg-fd-secondary/40 overflow-x-auto rounded-lg border p-4 text-left text-sm">

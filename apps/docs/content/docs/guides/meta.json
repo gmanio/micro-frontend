@@ -1,4 +1,4 @@
 {
   "title": "Guides",
-  "pages": ["introduction", "installation", "responsive-layout"]
+  "pages": ["introduction", "installation", "responsive-layout", "i18n"]
 }
