@@ -1,0 +1,19 @@
+---
+title: Responsive
+description: Slot component for mobile vs desktop
+---
+
+```tsx
+import { Responsive } from "@dndproperty/betterliving-sdk/responsive";
+
+<Responsive mobile={<Mobile />} desktop={<Desktop />} />
+```
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `mobile` | `ReactNode` | Shown when resolved layout is `mobile` |
+| `desktop` | `ReactNode` | Shown when resolved layout is `desktop` |
+
+`BetterLivingSdkProvider` 안에서만 사용합니다.
+
+<DemoResponsive />

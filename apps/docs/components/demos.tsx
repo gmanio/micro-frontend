@@ -1,73 +1,40 @@
-'use client';
+"use client";
 
-import { Button } from "@dndproperty/betterliving-ui/components/button";
-import { Badge } from "@dndproperty/betterliving-ui/components/badge";
-import { Input } from "@dndproperty/betterliving-ui/components/input";
-import { Label } from "@dndproperty/betterliving-ui/components/label";
-import { Skeleton } from "@dndproperty/betterliving-ui/components/skeleton";
 import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@dndproperty/betterliving-ui/components/card";
+  BetterLivingSdkProvider,
+  Responsive,
+  useLayout,
+} from "@dndproperty/betterliving-sdk/responsive";
 
-export function DemoButton() {
+function LayoutLabel() {
+  const layout = useLayout();
   return (
-    <div className="not-prose flex flex-wrap gap-2">
-      <Button>Default</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="ghost">Ghost</Button>
-    </div>
+    <p className="text-sm font-medium">
+      Resolved layout: <code>{layout}</code>
+    </p>
   );
 }
 
-export function DemoBadge() {
+export function DemoResponsive() {
   return (
-    <div className="not-prose flex flex-wrap gap-2">
-      <Badge>Default</Badge>
-      <Badge variant="secondary">Secondary</Badge>
-      <Badge variant="outline">Outline</Badge>
-      <Badge variant="destructive">Destructive</Badge>
+    <div className="not-prose border-fd-border bg-fd-secondary/30 rounded-lg border p-4">
+      <BetterLivingSdkProvider layout="auto">
+        <div className="flex flex-col gap-3">
+          <LayoutLabel />
+          <Responsive
+            mobile={
+              <div className="bg-fd-background rounded-md border border-dashed p-4 text-sm">
+                Mobile slot — resize below 768px (or narrow the pane).
+              </div>
+            }
+            desktop={
+              <div className="bg-fd-background rounded-md border border-dashed p-4 text-sm">
+                Desktop slot — viewport ≥ 768px.
+              </div>
+            }
+          />
+        </div>
+      </BetterLivingSdkProvider>
     </div>
-  );
-}
-
-export function DemoInput() {
-  return (
-    <div className="not-prose grid max-w-sm gap-2">
-      <Label htmlFor="demo-email">Email</Label>
-      <Input id="demo-email" placeholder="you@example.com" type="email" />
-    </div>
-  );
-}
-
-export function DemoSkeleton() {
-  return (
-    <div className="not-prose flex max-w-sm flex-col gap-2">
-      <Skeleton className="h-4 w-3/4" />
-      <Skeleton className="h-4 w-1/2" />
-      <Skeleton className="h-24 w-full" />
-    </div>
-  );
-}
-
-export function DemoCard() {
-  return (
-    <Card className="not-prose max-w-sm">
-      <CardHeader>
-        <CardTitle>Card</CardTitle>
-        <CardDescription>Basic card layout primitives.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm">Use with Better Living product surfaces.</p>
-      </CardContent>
-      <CardFooter>
-        <Button size="sm">Action</Button>
-      </CardFooter>
-    </Card>
   );
 }

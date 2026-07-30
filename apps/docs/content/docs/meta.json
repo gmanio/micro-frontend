@@ -1,9 +1,14 @@
 {
   "title": "Documentation",
   "pages": [
+    "index",
+    "---Flows---",
+    "...flows",
     "---Guides---",
     "...guides",
     "---API---",
-    "...api"
+    "...api",
+    "---Meta---",
+    "changelog"
   ]
 }

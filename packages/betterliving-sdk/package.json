@@ -1,0 +1,57 @@
+{
+  "name": "@dndproperty/betterliving-sdk",
+  "version": "0.0.1",
+  "description": "Better Living SDK — responsive layout helpers",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-styles.mjs",
+    "clean": "rm -rf dist",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepublishOnly": "pnpm run clean && pnpm run build"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./globals.css": "./dist/styles/globals.css",
+    "./responsive": {
+      "types": "./dist/responsive/index.d.ts",
+      "import": "./dist/responsive/index.js",
+      "require": "./dist/responsive/index.js",
+      "default": "./dist/responsive/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "responsive": [
+        "./dist/responsive/index.d.ts"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  }
+}

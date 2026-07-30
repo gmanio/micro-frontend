@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Scan this package (monorepo src and published dist) */
+@source "../**/*.{ts,tsx,js,jsx}";

@@ -1,0 +1,32 @@
+---
+title: Responsive layout
+description: Bootstrap provider, resolve layout, compose slots
+---
+
+Better Living 앱에 SDK를 붙일 때는 네 단계로 생각하면 됩니다.
+
+## 1. Bootstrap
+
+Install → peers → `globals.css` + `@source` → 루트에 `BetterLivingSdkProvider`.
+
+## 2. Layout resolution
+
+`layout="auto"`이면 `desktopMinWidthPx`(기본 768) media query로 `mobile` / `desktop`을 고릅니다.  
+강제하려면 `layout="mobile"` 또는 `"desktop"`.
+
+`useLayout()`으로 분기할 수도 있습니다.
+
+## 3. Compose
+
+```tsx
+<Responsive mobile={<MobileNav />} desktop={<DesktopNav />} />
+```
+
+실제 feature 화면은 Passport 등 Better Living 앱(또는 이후 SDK `screens/*`)이 담당합니다.
+
+## 4. Release
+
+버전 bump → `pnpm publish` (GitHub Packages) → docs Changelog 반영.  
+Publish는 tag/manual 워크플로를 사용합니다 (매 push 자동 배포 아님).
+
+<DemoResponsive />

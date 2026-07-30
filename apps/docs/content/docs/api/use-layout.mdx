@@ -1,0 +1,14 @@
+---
+title: useLayout
+description: Read the resolved mobile or desktop layout
+---
+
+```tsx
+import { useLayout } from "@dndproperty/betterliving-sdk/responsive";
+
+const layout = useLayout(); // "mobile" | "desktop"
+```
+
+Provider 밖에서 호출하면 에러를 던집니다.
+
+조건부 렌더가 단순하면 [`Responsive`](/docs/api/responsive)를 우선 사용하세요.

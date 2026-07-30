@@ -1,21 +1,13 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
-import {
-  DemoBadge,
-  DemoButton,
-  DemoCard,
-  DemoInput,
-  DemoSkeleton,
-} from "@/components/demos";
+import { DemoResponsive } from "@/components/demos";
+import { Mermaid } from "@/components/mdx/mermaid";
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
-    DemoButton,
-    DemoBadge,
-    DemoInput,
-    DemoSkeleton,
-    DemoCard,
+    DemoResponsive,
+    Mermaid,
     ...components,
   } satisfies MDXComponents;
 }

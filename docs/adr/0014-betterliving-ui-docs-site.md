@@ -1,6 +1,6 @@
 # ADR 0014: Standalone Fumadocs docs for betterliving-ui
 
-- Status: Accepted
+- Status: Superseded by [0015](./0015-betterliving-sdk-docs.md)
 - Date: 2026-07-30
 
 ## Context

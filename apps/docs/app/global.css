@@ -1,9 +1,9 @@
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
-@import "@dndproperty/betterliving-ui/globals.css";
+@import "@dndproperty/betterliving-sdk/globals.css";
 
-@source "../../../packages/betterliving-ui/src/**/*.{ts,tsx}";
+@source "../../../packages/betterliving-sdk/src/**/*.{ts,tsx}";
 @source "../components/**/*.{ts,tsx}";
 @source "../content/**/*.{mdx,md}";
 

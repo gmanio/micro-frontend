@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "apps/docs/**"
-      - "packages/betterliving-ui/**"
+      - "packages/betterliving-sdk/**"
       - "pnpm-lock.yaml"
       - ".github/workflows/docs.yml"
   workflow_dispatch:
@@ -35,8 +35,8 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
-      - name: Build betterliving-ui
-        run: pnpm --filter @dndproperty/betterliving-ui build
+      - name: Build betterliving-sdk
+        run: pnpm --filter @dndproperty/betterliving-sdk build
 
       - name: Build docs
         env:

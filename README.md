@@ -26,7 +26,7 @@ AI 에이전트와 사람이 같은 규칙으로 확장할 수 있도록 맞춘 
 |------|----------------|
 | 독립 빌드·배포 | zone(`apps/*`)별 Next 앱. path·포트·`assetPrefix` 분리 |
 | 단일 진입점 | `apps/home`이 사용자 도메인(`:3000`)에서 나머지로 rewrite |
-| 공유 디자인 | `@repo/ui` — zone 공용. 배포용 패키지는 `@dndproperty/betterliving-ui` |
+| 공유 디자인 | `@repo/ui` — zone 공용. 배포용 UI `@dndproperty/betterliving-ui`, SDK `@dndproperty/betterliving-sdk` |
 | 내비 | zone 안: Next soft nav. zone 사이: hard link (`<a>`만) |
 | 확장 단위 | 새 제품 표면 ≈ 새 zone (path + rewrite + ADR) |
 | 비목표 | 같은 문서에서 타 앱 컴포넌트를 런타임 합성 (Federation 등은 범위 밖 — ADR [0001](docs/adr/0001-multi-zones.md)) |
@@ -53,6 +53,7 @@ AI 에이전트와 사람이 같은 규칙으로 확장할 수 있도록 맞춘 
 pnpm install
 pnpm --filter @repo/storybook build:storybook
 pnpm --filter @dndproperty/betterliving-ui build
+pnpm --filter @dndproperty/betterliving-sdk build
 pnpm dev
 # package docs (not a zone): pnpm dev:docs  → http://localhost:3200
 ```
@@ -64,7 +65,7 @@ pnpm dev
 | https://localhost:3000 | Home (라우터) |
 | https://localhost:3000/passport | Passport |
 | https://localhost:3000/storybook/ | Storybook (로컬 Vite HMR — ADR [0013](docs/adr/0013-storybook-zone-hmr-dev.md)) |
-| http://localhost:3200 | betterliving-ui docs (standalone Fumadocs — ADR [0014](docs/adr/0014-betterliving-ui-docs-site.md)) |
+| http://localhost:3200 | betterliving-sdk docs (standalone Fumadocs — ADR [0015](docs/adr/0015-betterliving-sdk-docs.md)) |
 
 ## Structure
 
@@ -73,8 +74,9 @@ plans/                   # dated plans (append-only)
 apps/home                # :3000 — domain router
 apps/passport            # :3100 — /passport
 apps/storybook           # :6006 static + :6007 Vite HMR — /storybook
-apps/docs                # :3200 — betterliving-ui docs (GitHub Pages; not a zone)
+apps/docs                # :3200 — betterliving-sdk docs (GitHub Pages; not a zone)
 packages/ui              # @repo/ui — zone shared UI
 packages/betterliving-ui # @dndproperty/betterliving-ui — publishable UI
+packages/betterliving-sdk # @dndproperty/betterliving-sdk — publishable SDK
 docs/adr/                # architecture decisions
 ```

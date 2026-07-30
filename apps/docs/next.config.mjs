@@ -13,7 +13,7 @@ const config = {
   images: { unoptimized: true },
   basePath: basePath || undefined,
   assetPrefix: basePath || undefined,
-  transpilePackages: ["@dndproperty/betterliving-ui"],
+  transpilePackages: ["@dndproperty/betterliving-sdk"],
 };
 
 export default withMDX(config);

@@ -1,15 +1,4 @@
 {
   "title": "API",
-  "pages": [
-    "button",
-    "badge",
-    "card",
-    "input",
-    "label",
-    "skeleton",
-    "unit-card",
-    "display-unit-editor",
-    "lib-utils",
-    "lib-dnd"
-  ]
+  "pages": ["responsive", "provider", "use-layout"]
 }

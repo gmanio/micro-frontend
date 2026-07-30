@@ -25,9 +25,10 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 | `apps/home` | Router `:3000` |
 | `apps/passport` | `/passport` `:3100` |
 | `apps/storybook` | `/storybook` `:6006` + Vite HMR `:6007` |
-| `apps/docs` | Standalone Fumadocs docs for betterliving-ui (`:3200`; not a zone — ADR 0014) |
+| `apps/docs` | Standalone Fumadocs docs for betterliving-sdk (`:3200`; not a zone — ADR 0015) |
 | `packages/ui` | Tailwind + shadcn shared UI (`@repo/ui`, zones) |
 | `packages/betterliving-ui` | Publishable Better Living UI (`@dndproperty/betterliving-ui`) |
+| `packages/betterliving-sdk` | Publishable Better Living SDK (`@dndproperty/betterliving-sdk`) |
 | `docs/adr/` | ADRs |
 
 ## Multi-Zones checklist
@@ -47,9 +48,10 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 pnpm install
 pnpm --filter @repo/storybook build:storybook
 pnpm --filter @dndproperty/betterliving-ui build
+pnpm --filter @dndproperty/betterliving-sdk build
 pnpm dev
 # optional escapes:
 pnpm --filter @repo/storybook dev:stories
 pnpm --filter @repo/storybook dev:next
-pnpm dev:docs   # betterliving-ui Fumadocs (:3200; not a zone)
+pnpm dev:docs   # betterliving-sdk Fumadocs (:3200; not a zone)
 ```

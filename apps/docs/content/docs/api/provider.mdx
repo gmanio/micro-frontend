@@ -1,0 +1,20 @@
+---
+title: BetterLivingSdkProvider
+description: Root provider for layout mode
+---
+
+```tsx
+import { BetterLivingSdkProvider } from "@dndproperty/betterliving-sdk/responsive";
+
+<BetterLivingSdkProvider layout="auto" desktopMinWidthPx={768}>
+  {children}
+</BetterLivingSdkProvider>
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `layout` | `"auto" \| "mobile" \| "desktop"` | `"auto"` | Forced or viewport-based layout |
+| `desktopMinWidthPx` | `number` | `768` | `min-width` for desktop when `auto` |
+| `children` | `ReactNode` | — | App tree |
+
+Export: `@dndproperty/betterliving-sdk/responsive`.

@@ -1,31 +1,21 @@
 ---
 title: Introduction
-description: What @dndproperty/betterliving-ui is and how to use this docs site
+description: What the SDK covers in v0.1
 ---
 
-`@dndproperty/betterliving-ui`는 Better Living 제품을 위한 **배포용** React UI 패키지입니다.
+`@dndproperty/betterliving-sdk` v0.1은 Better Living 앱에서 **mobile / desktop 레이아웃을 한곳에서 해석**하기 위한 얇은 CSR 레이어입니다.
 
-- React 18/19 + **Tailwind CSS v4** peer
-- GitHub Packages (`@dndproperty` scope)로 publish
-- 공유 zone UI인 `@repo/ui`와 역할이 다릅니다 (모노레포 내부 vs 외부 소비)
+## In scope
 
-## 이 사이트에서 찾을 수 있는 것
+- `BetterLivingSdkProvider` — `layout="auto" | "mobile" | "desktop"`
+- `useLayout()` — 해석된 `"mobile" | "desktop"`
+- `<Responsive mobile={} desktop={} />` — 슬롯 합성
+- `./globals.css` + Tailwind `@source`
 
-| Section | 내용 |
-|---------|------|
-| **Guides** | 설치, CSS/`@source`, 첫 컴포넌트 |
-| **API** | 공개 `exports`별 import 경로와 사용 예 |
+## Out of scope (v0.1)
 
-스토리북(`/storybook`)은 모노레포 Multi-Zones 내부 플레이그라운드입니다. 패키지 소비자는 이 docs를 기준으로 하세요.
+- Passport 가입/로그인/로그아웃 UI·API ([Flows](/docs/flows/overview)로만 문서화)
+- `screens/*` feature 화면 패키지
+- betterliving-ui 컴포넌트 카탈로그 (별도 패키지)
 
-## 빠른 예
-
-```tsx
-import { Button } from "@dndproperty/betterliving-ui/components/button";
-
-export function Example() {
-  return <Button>Save</Button>;
-}
-```
-
-다음: [Installation](/docs/guides/installation).
+인증은 Better Living Passport가 소유하고, SDK는 레이아웃 계약만 제공합니다.
