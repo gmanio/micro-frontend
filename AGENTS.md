@@ -25,6 +25,7 @@ Root **dirs:** `apps/`, `packages/`, `docs/`, `plans/`, `.cursor/`, `.git/`, `no
 | `apps/home` | Router `:3000` |
 | `apps/passport` | `/passport` `:3100` |
 | `apps/storybook` | `/storybook` `:6006` + Vite HMR `:6007` |
+| `apps/docs` | Standalone Fumadocs docs for betterliving-ui (`:3200`; not a zone — ADR 0014) |
 | `packages/ui` | Tailwind + shadcn shared UI (`@repo/ui`, zones) |
 | `packages/betterliving-ui` | Publishable Better Living UI (`@dndproperty/betterliving-ui`) |
 | `docs/adr/` | ADRs |
@@ -50,4 +51,5 @@ pnpm dev
 # optional escapes:
 pnpm --filter @repo/storybook dev:stories
 pnpm --filter @repo/storybook dev:next
+pnpm dev:docs   # betterliving-ui Fumadocs (:3200; not a zone)
 ```

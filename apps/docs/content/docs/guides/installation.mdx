@@ -1,0 +1,50 @@
+---
+title: Installation
+description: Install from GitHub Packages and wire Tailwind v4
+---
+
+## 1. Registry
+
+`.npmrc` (프로젝트 또는 사용자):
+
+```ini
+@dndproperty:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+
+토큰은 `read:packages`가 필요합니다. **레포에 토큰을 커밋하지 마세요.**
+
+## 2. Install
+
+```bash
+pnpm add @dndproperty/betterliving-ui
+```
+
+Peers:
+
+```bash
+pnpm add react react-dom tailwindcss
+```
+
+## 3. Styles
+
+앱 CSS에서 패키지 globals를 import하고, Tailwind가 클래스를 스캔하도록 `@source`를 넣습니다.
+
+```css
+@import "tailwindcss";
+@import "@dndproperty/betterliving-ui/globals.css";
+
+/* published package */
+@source "../node_modules/@dndproperty/betterliving-ui/dist/**/*.{js,jsx}";
+```
+
+모노레포 workspace로 쓰는 경우 `src`를 스캔해도 됩니다.
+
+## 4. Import components
+
+```tsx
+import { Button } from "@dndproperty/betterliving-ui/components/button";
+import { Badge } from "@dndproperty/betterliving-ui/components/badge";
+```
+
+서브패스는 [`package.json` `exports`](https://github.com/gmanio/micro-frontend/blob/main/packages/betterliving-ui/package.json)를 따릅니다.

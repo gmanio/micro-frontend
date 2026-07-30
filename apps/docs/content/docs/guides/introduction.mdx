@@ -1,0 +1,31 @@
+---
+title: Introduction
+description: What @dndproperty/betterliving-ui is and how to use this docs site
+---
+
+`@dndproperty/betterliving-ui`는 Better Living 제품을 위한 **배포용** React UI 패키지입니다.
+
+- React 18/19 + **Tailwind CSS v4** peer
+- GitHub Packages (`@dndproperty` scope)로 publish
+- 공유 zone UI인 `@repo/ui`와 역할이 다릅니다 (모노레포 내부 vs 외부 소비)
+
+## 이 사이트에서 찾을 수 있는 것
+
+| Section | 내용 |
+|---------|------|
+| **Guides** | 설치, CSS/`@source`, 첫 컴포넌트 |
+| **API** | 공개 `exports`별 import 경로와 사용 예 |
+
+스토리북(`/storybook`)은 모노레포 Multi-Zones 내부 플레이그라운드입니다. 패키지 소비자는 이 docs를 기준으로 하세요.
+
+## 빠른 예
+
+```tsx
+import { Button } from "@dndproperty/betterliving-ui/components/button";
+
+export function Example() {
+  return <Button>Save</Button>;
+}
+```
+
+다음: [Installation](/docs/guides/installation).

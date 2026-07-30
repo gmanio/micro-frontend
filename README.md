@@ -52,7 +52,9 @@ AI 에이전트와 사람이 같은 규칙으로 확장할 수 있도록 맞춘 
 # once: brew install mkcert && mkcert -install
 pnpm install
 pnpm --filter @repo/storybook build:storybook
+pnpm --filter @dndproperty/betterliving-ui build
 pnpm dev
+# package docs (not a zone): pnpm dev:docs  → http://localhost:3200
 ```
 
 로컬 Next는 HTTPS(`--experimental-https`) — ADR [0012](docs/adr/0012-https-local-next-dev.md).
@@ -62,6 +64,7 @@ pnpm dev
 | https://localhost:3000 | Home (라우터) |
 | https://localhost:3000/passport | Passport |
 | https://localhost:3000/storybook/ | Storybook (로컬 Vite HMR — ADR [0013](docs/adr/0013-storybook-zone-hmr-dev.md)) |
+| http://localhost:3200 | betterliving-ui docs (standalone Fumadocs — ADR [0014](docs/adr/0014-betterliving-ui-docs-site.md)) |
 
 ## Structure
 
@@ -70,6 +73,7 @@ plans/                   # dated plans (append-only)
 apps/home                # :3000 — domain router
 apps/passport            # :3100 — /passport
 apps/storybook           # :6006 static + :6007 Vite HMR — /storybook
+apps/docs                # :3200 — betterliving-ui docs (GitHub Pages; not a zone)
 packages/ui              # @repo/ui — zone shared UI
 packages/betterliving-ui # @dndproperty/betterliving-ui — publishable UI
 docs/adr/                # architecture decisions

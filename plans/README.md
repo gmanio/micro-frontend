@@ -34,6 +34,8 @@ todos:
 
 | File | Name | Status | Created |
 |------|------|--------|---------|
+| [2026-07-30_100343-betterliving-ui-docs-site.plan.md](./2026-07-30_100343-betterliving-ui-docs-site.plan.md) | Betterliving UI docs site | completed | 2026-07-30T10:03:43+09:00 |
+| [2026-07-24_112050-upgrade-tw-ts-next.plan.md](./2026-07-24_112050-upgrade-tw-ts-next.plan.md) | Upgrade TW / TS / Next | completed | 2026-07-24T11:20:50+09:00 |
 | [2026-07-23_110023-storybook-zone-hmr-dev.plan.md](./2026-07-23_110023-storybook-zone-hmr-dev.plan.md) | Storybook zone live HMR | completed | 2026-07-23T11:00:23+09:00 |
 | [2026-07-23_100918-storybook-all-ui-components.plan.md](./2026-07-23_100918-storybook-all-ui-components.plan.md) | Storybook all UI components | completed | 2026-07-23T10:09:18+09:00 |
 | [2026-07-23_100758-add-all-shadcn-ui.plan.md](./2026-07-23_100758-add-all-shadcn-ui.plan.md) | Add all shadcn to @repo/ui | completed | 2026-07-23T10:07:58+09:00 |

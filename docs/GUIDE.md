@@ -47,6 +47,7 @@ Env: `apps/home/.env.example` → `.env.local`. Default `STORYBOOK_URL=http://lo
 - Standalone package at `packages/betterliving-ui` — ADR [0011](./adr/0011-betterliving-ui-publishable.md)
 - Build: `pnpm --filter @dndproperty/betterliving-ui build` → `dist/`
 - Publish: GitHub Packages (`pnpm --filter @dndproperty/betterliving-ui publish`) with auth in user/CI `.npmrc`
+- **Public docs site** (`apps/docs`, Fumadocs → GitHub Pages) — ADR [0014](./adr/0014-betterliving-ui-docs-site.md); **not** a Multi-Zone (`pnpm --filter @repo/docs dev` on `:3200`)
 
 ### Storybook zone
 
