@@ -1,0 +1,41 @@
+---
+title: 호실
+description: Room — inventory unit, pricing, current contract, unit links
+---
+
+**호실(Room)** 은 **재고와 계약 배정의 실체**입니다. 유닛은 여러 호실을 묶고, 계약은 최종적으로 하나의 `roomId`를 가집니다.
+
+## 위치·속성
+
+| 필드 요지 | 설명 |
+|-----------|------|
+| `siteId` / `siteDongId` / `siteTypeId` | 사이트 · 동 · 평형 |
+| `roomNo` · `floorNo` · `riseLevel` | 호수 · 층 · 층 밴드 (`LOW`/`MID`/`HIGH`/`UNKNOWN`) |
+| `orientation` | 향 |
+| `rentalType` | 임대유형 (사이트 운영구분에 따라 옵션 상이) |
+| `displayFl` · `status` | 전시 · ACTIVE 등 |
+| 요금 | 보증금 기준, 임대료 티어, 서비스이용료, 청소비 등 |
+
+## 유닛과의 관계
+
+호실 ↔ 유닛은 **M:N** (`UnitToRoom`).  
+한 호실이 여러 유닛에 들어갈 수 있고, 유닛 상세에서 호실별 `soldOut` · `contractStatus`를 봅니다 → [유닛](/docs/asset/unit).
+
+## 계약 정보
+
+Admin 호실 상세의 **현재 계약** 블록:
+
+- `available` / `ContractStatus` / 기간
+- 계약 상세로 이동
+
+배정은 호실 화면이 아니라 **계약 플로우**에서 `roomId`를 고르거나, Passport가 유닛 기준 자동 배정합니다 → [자산 overview](/docs/asset/overview) · [계약](/docs/contract/overview).
+
+## 운영 접점
+
+- **인벤토리·블록** (홀딩/수리/청소) — [인벤토리](/docs/asset/inventory)
+- 원격 문열기·로그: 거주중(`MOVED`) 등 상태에 따라 제한될 수 있음
+- 복사 등록으로 유사 호실을 만들 수 있음 (Admin)
+
+## Admin CRUD (요지)
+
+개별 등록·수정·삭제. 일괄 등록 UI는 비활성인 경우가 있음. 삭제는 권한 제한 가능.

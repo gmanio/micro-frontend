@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: "%s | Better Living",
   },
   description:
-    "Better Living — contract and member domain docs, SDK responsive helpers.",
+    "Better Living — contract, asset, and member domain docs; SDK responsive helpers.",
 };
 
 export default function Layout({ children }: LayoutProps<"/">) {

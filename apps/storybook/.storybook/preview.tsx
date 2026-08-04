@@ -17,14 +17,23 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (Story) => (
-      <TooltipProvider>
-        <div className="min-w-[320px] max-w-3xl p-4">
-          <Story />
-          <Toaster />
-        </div>
-      </TooltipProvider>
-    ),
+    (Story, context) => {
+      const fullscreen = context.parameters.layout === "fullscreen";
+      return (
+        <TooltipProvider>
+          <div
+            className={
+              fullscreen
+                ? "box-border w-full max-w-none min-h-screen p-0"
+                : "min-w-[320px] max-w-3xl p-4"
+            }
+          >
+            <Story />
+            <Toaster />
+          </div>
+        </TooltipProvider>
+      );
+    },
   ],
 };
 

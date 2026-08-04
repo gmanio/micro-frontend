@@ -1,0 +1,61 @@
+---
+title: 인벤토리
+description: RoomInventory and RoomBlock — availability, holds, contract occupancy
+---
+
+**인벤토리**는 호실의 **일별 가용성**을 나타냅니다. 계약과 Admin 블록이 카운터를 올리고, Passport 예약 가능 일자가 여기서 결정됩니다.
+
+## RoomInventory (호실 × 일자)
+
+| 필드 | 의미 |
+|------|------|
+| `bookedCnt` | 계약 기간 점유 |
+| `holdCnt` | 퇴거 후 홀드 등 |
+| `blockedCnt` | Admin 블록(유지보수 등) |
+| `isAvailableFl` | 해당 일 예약 가능 여부 |
+| `contractId` | 점유 계약 (있을 때) |
+
+공개/예약 조회는 보통 `isAvailableFl == false`를 점유로 봅니다.  
+예약 윈도우 예: 체크인 **오늘+3일 ~ 약 +93일** (서비스 정책).
+
+## 계약 상태와 점유 타이밍
+
+| 이벤트 | 인벤토리 |
+|--------|----------|
+| Passport 초안 `START` | 호실 후보만 — **미점유**(요지) |
+| 가계약금 → `BOOKED` | **점유** (`bookedCnt` 등) |
+| Admin `ADMINSTART` 생성 | **즉시 점유** |
+| Admin 호실 변경/확정 | 기존 clear → 신규 apply · `roomFixDt` |
+| 취소 · 퇴거 처리 | clear |
+| 퇴거 후 | `holdCnt`로 버퍼 구간을 둘 수 있음 |
+
+계약 상태 의미는 [계약 overview](/docs/contract/overview).
+
+## RoomBlock (Admin)
+
+유지보수성 블록 (인벤토리 화면에서도 표시):
+
+| 타입 | 요지 |
+|------|------|
+| `HOLDING` | 홀딩 |
+| `REPAIR` | 수리 |
+| `CLEANING` | 청소 |
+
+생성 시 겹침·가용성 검증 후 `blockedCnt` 반영. 해제 시 inactive 처리 후 재계산.
+
+## Admin 인벤토리 UI
+
+타임라인에 계약 기간 바(`ContractStatus` 색) + hold + block을 겹쳐 보여 줍니다.  
+내비상 **계약 관리** 쪽에 두는 경우가 많지만, 도메인상 자산·계약 **교차**입니다.
+
+UI 컴포넌트: `@dndproperty/betterliving-ui/components/InventoryTimeline` (Storybook: BetterLiving/InventoryTimeline).
+
+## 체크리스트
+
+- [ ] 회원 예약: 결제 전후 점유 시점 구분
+- [ ] Admin 생성: 즉시 점유
+- [ ] 호실 확정 시 inventory swap
+- [ ] 블록과 계약 점유를 혼동하지 않기
+- [ ] 취소/퇴거 시 clear
+
+다음: [호실](/docs/asset/room) · [유닛](/docs/asset/unit) · [계약](/docs/contract/overview)

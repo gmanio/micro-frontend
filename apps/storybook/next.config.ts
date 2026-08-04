@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   assetPrefix: "/storybook-static",
-  transpilePackages: ["@repo/ui"],
+  transpilePackages: ["@repo/ui", "@dndproperty/betterliving-ui"],
   // Keep /storybook/ path for the static Storybook UI
   skipTrailingSlashRedirect: true,
   experimental: {

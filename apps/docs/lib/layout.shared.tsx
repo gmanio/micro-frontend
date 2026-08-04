@@ -13,6 +13,11 @@ export function baseOptions(): BaseLayoutProps {
         active: "nested-url",
       },
       {
+        text: "자산",
+        url: "/docs/asset/overview",
+        active: "nested-url",
+      },
+      {
         text: "회원",
         url: "/docs/member/overview",
         active: "nested-url",

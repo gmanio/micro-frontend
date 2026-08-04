@@ -1,0 +1,39 @@
+---
+title: 사이트
+description: Site — display, operation type, dong, floor plan type, accounts, e-contract templates
+---
+
+**사이트(Site)** 는 자산의 루트입니다. Admin **사이트 관리**에서 등록·수정하며, 동·평형·호실·유닛·계좌·전자계약 템플릿이 여기에 매달립니다.
+
+## 핵심 필드 (요지)
+
+| 구분 | 내용 |
+|------|------|
+| 식별·이름 | `siteId`, 사이트명(국/영) |
+| 노출 | `displayFl`(전시), `useFl`(판매/이용) |
+| 운영 | `operationType`: `MASTERLESS` / `DELEGATED` |
+| 분류 | `siteCategory` (아파트·오피스텔·빌라 등) |
+| 위치 | 주소, `lat`/`lon` |
+| 하위 | `SiteType`(평형), `SiteDong`(동), 편의·교통, 매니저, 가이드 |
+
+`status`는 `ACTIVE` / `INACTIVE` / `DELETED` 등 공통 생명주기.
+
+## 운영 구분과 호실 임대유형
+
+사이트 `operationType`에 따라 호실에 넣을 수 있는 **임대유형(`RentalType`)** 옵션이 달라집니다 (일반 / 노마드 / ML 계열). → [호실](/docs/asset/room)
+
+## 계약·전자계약과의 접점
+
+- 계약 생성 시 **사이트 선택**이 첫 단계 (Admin) / 유닛이 속한 사이트로 스냅샷
+- 사이트에 연결된 **문서 템플릿**(`INDIVIDUAL` / `REP_AGENT` 등)이 모두싸인 요청에 사용됨 → [모두싸인](/docs/contract/modusign)
+- 보증금·이용료 **가상계좌/계좌 정보**가 사이트(또는 관련 계정)에 묶일 수 있음
+
+## Admin CRUD (요지)
+
+| 동작 | 비고 |
+|------|------|
+| 등록 / 수정 / 상세 | 사이트 관리 |
+| 삭제 | 상위 권한(SUPER 등)으로 제한되는 경우가 많음 |
+| 평형·동 | 사이트 하위 API/화면에서 관리 |
+
+공개 카탈로그는 `ACTIVE` + `useFl` + `displayFl`인 사이트만 → [자산 overview](/docs/asset/overview)

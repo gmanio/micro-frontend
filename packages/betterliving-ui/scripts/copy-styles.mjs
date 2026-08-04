@@ -10,5 +10,15 @@ copyFileSync(
   join(root, "src/styles/globals.css"),
   join(distStyles, "globals.css"),
 );
+copyFileSync(
+  join(root, "src/styles/inventory-timeline.css"),
+  join(distStyles, "inventory-timeline.css"),
+);
+copyFileSync(
+  join(root, "src/styles/swiper-main-banner.css"),
+  join(distStyles, "swiper-main-banner.css"),
+);
 
 console.log("Copied globals.css → dist/styles/globals.css");
+console.log("Copied inventory-timeline.css → dist/styles/inventory-timeline.css");
+console.log("Copied swiper-main-banner.css → dist/styles/swiper-main-banner.css");

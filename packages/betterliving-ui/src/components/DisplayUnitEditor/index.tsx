@@ -41,6 +41,9 @@ const DEFAULT_SUB_TITLE: LocaleText = {
   en: "You can move in right now",
 }
 
+/** 리스트당 유닛 최대 개수 */
+const MAX_UNITS_PER_LIST = 4
+
 function ListIdField({
   listId,
   allListIds,
@@ -362,6 +365,7 @@ export function DisplayUnitListEditor({
               !isLoading &&
               !isHydratingList
             const hasUnitRefs = list.units.length > 0
+            const atUnitLimit = list.units.length >= MAX_UNITS_PER_LIST
 
             return (
               <SortableItem
@@ -505,7 +509,13 @@ export function DisplayUnitListEditor({
 
                         {isEditing ? (
                           <form
-                            onSubmit={(event) => onAddUnit(event, list.id)}
+                            onSubmit={(event) => {
+                              if (atUnitLimit) {
+                                event.preventDefault()
+                                return
+                              }
+                              onAddUnit(event, list.id)
+                            }}
                             className="flex flex-col gap-3"
                           >
                             <div className="flex flex-col gap-2 sm:flex-row">
@@ -518,17 +528,23 @@ export function DisplayUnitListEditor({
                                   )
                                 }
                                 placeholder="Unit ID"
-                                disabled={isLoading}
+                                disabled={isLoading || atUnitLimit}
                                 className="font-mono"
                               />
                               <Button
                                 type="submit"
-                                disabled={isLoading}
+                                disabled={isLoading || atUnitLimit}
                                 className="shrink-0"
                               >
                                 {isLoading ? "Loading…" : "Add unit"}
                               </Button>
                             </div>
+                            {atUnitLimit ? (
+                              <p className="text-xs text-muted-foreground">
+                                유닛은 리스트당 최대 {MAX_UNITS_PER_LIST}개까지
+                                추가할 수 있습니다.
+                              </p>
+                            ) : null}
                           </form>
                         ) : null}
 

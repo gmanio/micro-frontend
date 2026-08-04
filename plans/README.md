@@ -34,6 +34,11 @@ todos:
 
 | File | Name | Status | Created |
 |------|------|--------|---------|
+| [2026-08-03_135134-main-banner-api-map.plan.md](./2026-08-03_135134-main-banner-api-map.plan.md) | Main banner API map util | completed | 2026-08-03T13:51:34+09:00 |
+| [2026-08-03_134754-swiper-main-banner-ui.plan.md](./2026-08-03_134754-swiper-main-banner-ui.plan.md) | SwiperMainBanner UI | completed | 2026-08-03T13:47:54+09:00 |
+| [2026-07-31_162212-betterliving-ui-deps-latest.plan.md](./2026-07-31_162212-betterliving-ui-deps-latest.plan.md) | betterliving-ui deps latest + build | completed | 2026-07-31T16:22:12+09:00 |
+| [2026-07-31_161310-inventory-timeline-ui.plan.md](./2026-07-31_161310-inventory-timeline-ui.plan.md) | InventoryTimeline UI | completed | 2026-07-31T16:13:10+09:00 |
+| [2026-07-30_170726-asset-domain-docs.plan.md](./2026-07-30_170726-asset-domain-docs.plan.md) | Asset domain docs IA | completed | 2026-07-30T17:07:26+09:00 |
 | [2026-07-30_160918-docs-domain-ia-modusign.plan.md](./2026-07-30_160918-docs-domain-ia-modusign.plan.md) | Docs domain IA + ModuSign | completed | 2026-07-30T16:09:18+09:00 |
 | [2026-07-30_155305-betterliving-contract-docs.plan.md](./2026-07-30_155305-betterliving-contract-docs.plan.md) | Better Living contract docs | completed | 2026-07-30T15:53:05+09:00 |
 | [2026-07-30_154058-betterliving-i18n-docs.plan.md](./2026-07-30_154058-betterliving-i18n-docs.plan.md) | Better Living i18n docs | completed | 2026-07-30T15:40:58+09:00 |

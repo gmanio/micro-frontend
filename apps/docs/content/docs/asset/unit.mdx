@@ -1,0 +1,43 @@
+---
+title: 유닛
+description: Unit — marketing listing bundle, room links, public catalog
+---
+
+**유닛(Unit)** 은 Passport·공개 사이트에서 보이는 **상품/리스팅 묶음**입니다.  
+유저는 보통 **유닛을 고르고**, 서버가 연결된 호실 중 가용한 것을 계약에 붙입니다.
+
+## 역할
+
+| | 유닛 | 호실 |
+|--|------|------|
+| 유저 시야 | 카탈로그·상세·예약 진입 | 확정 후 계약/입주에 노출 |
+| Admin | 노출·채널·호실 구성 | 재고·요금·현재 계약 |
+| 계약 | `unitId` + 이름 스냅샷 | `roomId` (배정·확정) |
+
+## 핵심 필드 (요지)
+
+| 구분 | 내용 |
+|------|------|
+| 소속 | `siteId`, (선택) `siteTypeId` |
+| 노출 | `displayFl`, `externalFl`(내부/외부 채널) |
+| 구성 | `roomIdList` / `UnitToRoom` |
+| 콘텐츠 | 설명, 이미지, 탭, 프로모션, 퍼니처 등 |
+| 목록 지표 | 계약 중 호실 수 / 등록 호실 수, 호실별 soldOut·계약상태 |
+
+## Passport vs Admin
+
+| | Passport / 공개 | Admin |
+|--|-----------------|-------|
+| 조회 | `ACTIVE` + `displayFl` 유닛 목록·상세 | 전체 CRUD |
+| 예약 | `unitId` (+ 일정)로 계약 생성 | 유닛+동+호실 명시 |
+| 복사 | — | 복사 시 호실 연결을 비우는 등 정책 |
+
+외부 채널 API는 `externalFl` 등과 함께 사이트·동·호실을 직접 고르는 경로가 있습니다.
+
+## 계약과의 연동
+
+1. 공개에서 유닛 선택  
+2. 가용 호실 자동 선택(회원) 또는 Admin이 호실 지정  
+3. 계약에 `unitId`·`roomId`·사이트/동 스냅샷  
+
+호실 확정·인벤토리 → [인벤토리](/docs/asset/inventory) · [계약](/docs/contract/overview)

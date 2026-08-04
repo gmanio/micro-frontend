@@ -11,7 +11,7 @@ export default function HomePage() {
           Better Living
         </h1>
         <p className="text-fd-muted-foreground text-lg">
-          계약·회원 도메인 문서와 SDK 반응형 헬퍼. GitHub Packages로 배포합니다.
+          계약 · 자산 · 회원 도메인 문서와 SDK 반응형 헬퍼.
         </p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
@@ -20,6 +20,12 @@ export default function HomePage() {
           className="bg-fd-primary text-fd-primary-foreground inline-flex h-10 items-center rounded-md px-4 text-sm font-medium"
         >
           계약
+        </Link>
+        <Link
+          href="/docs/asset/overview"
+          className="border-fd-border hover:bg-fd-accent inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
+        >
+          자산
         </Link>
         <Link
           href="/docs/member/overview"
@@ -31,7 +37,7 @@ export default function HomePage() {
           href="/docs/guides/installation"
           className="border-fd-border hover:bg-fd-accent inline-flex h-10 items-center rounded-md border px-4 text-sm font-medium"
         >
-          SDK Install
+          SDK
         </Link>
       </div>
       <pre className="border-fd-border bg-fd-secondary/40 overflow-x-auto rounded-lg border p-4 text-left text-sm">

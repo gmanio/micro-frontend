@@ -1,0 +1,155 @@
+/* Inventory timetable — scoped overrides for react-calendar-timeline */
+
+.inventory-timeline {
+  --inv-tl-border: rgb(226 232 240 / 0.95);
+  --inv-tl-border-strong: rgb(203 213 225);
+  --inv-tl-header: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+  border-radius: 12px;
+  overflow: visible;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.inventory-timeline .react-calendar-timeline {
+  border-radius: 0;
+  overflow: visible;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.05),
+    0 8px 24px -6px rgb(15 23 42 / 0.1),
+    0 0 0 1px rgb(15 23 42 / 0.04);
+}
+
+.inventory-timeline .rct-sidebar {
+  border-right: 1px solid var(--inv-tl-border-strong) !important;
+  background: linear-gradient(180deg, #fafbfc 0%, #f1f5f9 100%) !important;
+  box-shadow: 6px 0 20px -8px rgb(15 23 42 / 0.12);
+  position: relative;
+  /* Above calendar rows, below sticky header */
+  z-index: 20;
+}
+
+.inventory-timeline .rct-scroll {
+  position: relative;
+  z-index: 1;
+}
+
+.inventory-timeline .rct-sidebar .rct-sidebar-row {
+  border-bottom: 1px solid var(--inv-tl-border) !important;
+}
+
+.inventory-timeline .rct-sidebar .rct-sidebar-row.rct-sidebar-row-odd {
+  background: rgb(248 250 252 / 0.92) !important;
+}
+
+.inventory-timeline .rct-sidebar .rct-sidebar-row.rct-sidebar-row-even {
+  background: rgb(255 255 255 / 0.55) !important;
+}
+
+.inventory-timeline [data-testid="sidebarHeader"] {
+  background: var(--inv-tl-header) !important;
+  color: #f1f5f9 !important;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(15 23 42 / 0.35) !important;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
+  position: relative;
+  z-index: 1;
+}
+
+.inventory-timeline-scroll {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: min(
+    var(--inv-timeline-sticky-max-height, 70vh),
+    calc(100dvh - var(--inv-timeline-sticky-offset, 14rem))
+  );
+}
+
+.inventory-timeline .rct-header-root {
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--inv-timeline-sticky-top, 0);
+  /* Must sit above .rct-sidebar so vertical scroll does not cover the header */
+  z-index: 50;
+  background: #1e293b !important;
+  border-bottom: 1px solid rgb(15 23 42 / 0.35) !important;
+  box-shadow: 0 2px 8px -2px rgb(15 23 42 / 0.18);
+}
+
+.inventory-timeline .rct-calendar-header {
+  border: none !important;
+}
+
+.inventory-timeline .rct-dateHeader {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%) !important;
+  border-bottom: 1px solid var(--inv-tl-border) !important;
+  border-left: 1px solid var(--inv-tl-border) !important;
+  color: #1e293b !important;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.inventory-timeline .rct-dateHeader.rct-dateHeader--sat {
+  background: #c8ebfa !important;
+  color: #1e293b !important;
+}
+
+.inventory-timeline .rct-dateHeader.rct-dateHeader--sun {
+  background: #fbcfd0 !important;
+  color: #1e293b !important;
+}
+
+.inventory-timeline .rct-dateHeader-primary {
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%) !important;
+  color: #0f172a !important;
+  border-left: 1px solid var(--inv-tl-border-strong) !important;
+  border-right: 1px solid var(--inv-tl-border) !important;
+}
+
+.inventory-timeline .rct-vertical-lines .rct-vl {
+  border-left: 1px solid var(--inv-tl-border) !important;
+}
+
+.inventory-timeline .rct-vertical-lines .rct-vl.rct-vl-first {
+  border-left: 1px solid var(--inv-tl-border-strong) !important;
+}
+
+.inventory-timeline .rct-horizontal-lines .rct-hl-even,
+.inventory-timeline .rct-horizontal-lines .rct-hl-odd {
+  border-bottom: 1px solid var(--inv-tl-border) !important;
+}
+
+.inventory-timeline .rct-horizontal-lines .rct-hl-odd {
+  background: rgb(248 250 252 / 0.65) !important;
+}
+
+.inventory-timeline .rct-vertical-lines .rct-vl.rct-day-6 {
+  background: #c8ebfa !important;
+}
+
+.inventory-timeline .rct-vertical-lines .rct-vl.rct-day-0 {
+  background: #fbcfd0 !important;
+}
+
+.inventory-timeline .rct-vertical-lines .rct-vl.rct-vl-today {
+  background: #fff200 !important;
+}
+
+.inventory-timeline .rct-item {
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Label left/maxWidth are set inline from visible-slice math (RCT uses transform pan). */
+.inventory-timeline .rct-item .rct-item-content {
+  position: absolute !important;
+  top: 0;
+  display: inline-flex !important;
+  align-items: center;
+}

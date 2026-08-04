@@ -8,6 +8,7 @@ description: Better Living core domain — full contract lifecycle at a glance, 
 
 - [Passport 유저 UX](/docs/contract/passport) — 상태→화면·CTA·태스크
 - [모두싸인 전자계약](/docs/contract/modusign) — Document 서명 E2E
+- [자산](/docs/asset/overview) — 사이트·호실·유닛·인벤토리
 
 ## 용어
 
@@ -22,6 +23,7 @@ description: Better Living core domain — full contract lifecycle at a glance, 
 | **`UserStatus`** | 회원 계정 (계약과 직교) |
 | **`ContractUserStatus`** | 계약 멤버십(초대 등) |
 | **`ContractRegType`** | `WRITE`(회원) / `ADMIN`(운영) |
+| **자산** | 사이트·호실·유닛 — [자산 도메인](/docs/asset/overview) |
 
 ## 세 축 + 문서 축
 
@@ -121,3 +123,17 @@ flowchart TD
 자세한 API·참여자·Admin 강제완료는 **[모두싸인](/docs/contract/modusign)**.
 
 Passport 홈/my-space CTA·태스크는 **[Passport](/docs/contract/passport)**.
+
+---
+
+## 자산 · 호실 · 인벤토리
+
+계약은 자산 스냅샷(`site` · `dong` · `room` · `unit`)을 고정합니다.
+
+| 경로 | 자산 | 인벤토리 |
+|------|------|----------|
+| Passport | **유닛** 선택 → 가용 **호실** 자동 배정 | 가계약금(`BOOKED`) 시 점유 |
+| Admin 생성 | 사이트→유닛→동→호실 | `ADMINSTART` 즉시 점유 |
+| Admin 호실 확정 | `BOOKED`에서 호실 확정 | inventory swap · `READIED` 경로 |
+
+상세: [자산 overview](/docs/asset/overview) · [인벤토리](/docs/asset/inventory).

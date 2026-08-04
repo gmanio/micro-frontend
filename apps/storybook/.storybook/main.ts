@@ -7,6 +7,8 @@ import path, { dirname } from "node:path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const uiSrc = path.resolve(__dirname, "../../../packages/ui/src");
+const betterlivingUiRoot = path.resolve(__dirname, "../../../packages/betterliving-ui");
+const betterlivingUiSrc = path.join(betterlivingUiRoot, "src");
 
 const config: StorybookConfig = {
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -47,6 +49,26 @@ const config: StorybookConfig = {
       },
       resolve: {
         alias: [
+          {
+            find: "@dndproperty/betterliving-ui/inventory-timeline.css",
+            replacement: path.join(betterlivingUiSrc, "styles/inventory-timeline.css"),
+          },
+          {
+            find: "@dndproperty/betterliving-ui/swiper-main-banner.css",
+            replacement: path.join(betterlivingUiSrc, "styles/swiper-main-banner.css"),
+          },
+          {
+            find: "@dndproperty/betterliving-ui/globals.css",
+            replacement: path.join(betterlivingUiSrc, "styles/globals.css"),
+          },
+          {
+            find: /^@dndproperty\/betterliving-ui\/(.*)$/,
+            replacement: `${betterlivingUiSrc}/$1`,
+          },
+          {
+            find: "@dndproperty/betterliving-ui",
+            replacement: betterlivingUiSrc,
+          },
           {
             find: "@repo/ui/globals.css",
             replacement: path.join(uiSrc, "styles/globals.css"),
