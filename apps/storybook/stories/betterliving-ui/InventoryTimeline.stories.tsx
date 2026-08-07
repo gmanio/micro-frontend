@@ -30,6 +30,7 @@ function TimelineDemo({
   );
   const [visible, setVisible] = useState(defaultRange);
   const [lastSelect, setLastSelect] = useState<string>("(none)");
+  const [lastRoomClick, setLastRoomClick] = useState<string>("(none)");
   const [lastRoomDbl, setLastRoomDbl] = useState<string>("(none)");
 
   return (
@@ -40,6 +41,7 @@ function TimelineDemo({
         </span>
         <span className="flex flex-col items-end gap-0.5 font-mono text-xs">
           <span>select: {lastSelect}</span>
+          <span>roomClick: {lastRoomClick}</span>
           <span>roomDbl: {lastRoomDbl}</span>
         </span>
       </div>
@@ -58,6 +60,9 @@ function TimelineDemo({
                 ""
               }`,
             );
+          }}
+          onRoomClick={(roomId) => {
+            setLastRoomClick(roomId);
           }}
           onRoomDoubleClick={(roomId) => {
             setLastRoomDbl(roomId);

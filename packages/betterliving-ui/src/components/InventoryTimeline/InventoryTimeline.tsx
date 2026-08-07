@@ -55,6 +55,8 @@ export type InventoryTimelineProps = {
   onVisibleTimeChange?: (range: InventoryTimelineVisibleRange) => void;
   onItemSelect?: (payload: InventoryTimelineSelectPayload) => void;
   onItemDoubleClick?: (payload: InventoryTimelineSelectPayload) => void;
+  /** Sidebar 동호수(그룹) 클릭 — `roomId` 전달 */
+  onRoomClick?: (roomId: string) => void;
   /** Sidebar 동호수(그룹) 더블클릭 — `roomId` 전달 */
   onRoomDoubleClick?: (roomId: string) => void;
   loading?: boolean;
@@ -174,6 +176,7 @@ export function InventoryTimeline({
   onVisibleTimeChange,
   onItemSelect,
   onItemDoubleClick,
+  onRoomClick,
   onRoomDoubleClick,
   loading = false,
   className,
@@ -349,11 +352,20 @@ export function InventoryTimeline({
           groupRenderer={({ group }) => {
             const g = group as TimelineGroup;
             const roomId = String(g.id);
+            const roomInteractive = Boolean(onRoomClick || onRoomDoubleClick);
             return (
               <div
-                className={`flex h-full items-center gap-2 px-3 ${
-                  onRoomDoubleClick ? "cursor-pointer select-none" : ""
+                className={`flex h-full items-center gap-2 px-3${
+                  roomInteractive
+                    ? " inventory-timeline__room-row--interactive"
+                    : ""
                 }`}
+                onClick={(e) => {
+                  if (!onRoomClick) return;
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onRoomClick(roomId);
+                }}
                 onDoubleClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();

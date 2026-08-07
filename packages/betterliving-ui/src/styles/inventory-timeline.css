@@ -45,6 +45,29 @@
   background: rgb(255 255 255 / 0.55) !important;
 }
 
+/** Clickable sidebar room row — pointer + hover affordance when handlers are set */
+.inventory-timeline .inventory-timeline__room-row--interactive {
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 120ms ease;
+}
+
+.inventory-timeline .inventory-timeline__room-row--interactive:hover {
+  background: rgb(226 232 240 / 0.85);
+}
+
+.inventory-timeline
+  .rct-sidebar
+  .rct-sidebar-row:has(.inventory-timeline__room-row--interactive) {
+  cursor: pointer;
+}
+
+.inventory-timeline
+  .rct-sidebar
+  .rct-sidebar-row:has(.inventory-timeline__room-row--interactive):hover {
+  filter: brightness(0.97);
+}
+
 .inventory-timeline [data-testid="sidebarHeader"] {
   background: var(--inv-tl-header) !important;
   color: #f1f5f9 !important;
