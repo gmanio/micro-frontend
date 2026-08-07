@@ -18,7 +18,22 @@ copyFileSync(
   join(root, "src/styles/swiper-main-banner.css"),
   join(distStyles, "swiper-main-banner.css"),
 );
+copyFileSync(
+  join(root, "src/styles/unit-card.css"),
+  join(distStyles, "unit-card.css"),
+);
+copyFileSync(
+  join(root, "src/styles/product-card.css"),
+  join(distStyles, "product-card.css"),
+);
+copyFileSync(
+  join(root, "src/styles/security-pin-keypad.css"),
+  join(distStyles, "security-pin-keypad.css"),
+);
 
 console.log("Copied globals.css → dist/styles/globals.css");
 console.log("Copied inventory-timeline.css → dist/styles/inventory-timeline.css");
 console.log("Copied swiper-main-banner.css → dist/styles/swiper-main-banner.css");
+console.log("Copied unit-card.css → dist/styles/unit-card.css");
+console.log("Copied product-card.css → dist/styles/product-card.css");
+console.log("Copied security-pin-keypad.css → dist/styles/security-pin-keypad.css");

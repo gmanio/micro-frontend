@@ -21,8 +21,8 @@ export type MainBannerSlide = {
   externalFl?: boolean
   episode: string
   headlines: MainBannerHeadlines
-  /** Headline font weight — gasan/sindangPromo use bold; sungsu/blog use light */
-  headlineWeight?: "bold" | "light"
+  /** Headline font weight — default medium (`font-md`) */
+  headlineWeight?: "bold" | "medium" | "light"
   desktopImageFit?: MainBannerImageFit
   mobileImageFit?: MainBannerImageFit
   /** Prefer high fetch priority (e.g. LCP slide) */

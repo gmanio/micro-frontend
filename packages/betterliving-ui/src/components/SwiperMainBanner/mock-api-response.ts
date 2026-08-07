@@ -18,8 +18,8 @@ export const mockMainBannerPublicListResponse: MainBannerPublicListResponse = {
         en: "Up to 5 Months FREE Rent",
       },
       title3: {
-        ko: "+ 가구 지원금 [bold]10만원[/bold] 혜택!",
-        en: "+ [bold]₩100K[/bold] Furniture Bonus!",
+        ko: "+ 가구 지원금 <strong>10만원</strong> 혜택!",
+        en: "+ <strong>₩100K</strong> Furniture Bonus!",
       },
       displayPeriod: {
         startDt: "2026-07-01T00:00:00",

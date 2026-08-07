@@ -24,11 +24,11 @@ function BannerRotatingLine({
   className,
   containerClassName,
 }: {
-  motionKey: string
-  delay?: number
-  children: ReactNode
-  className?: string
-  containerClassName?: string
+  motionKey: string;
+  delay?: number;
+  children: ReactNode;
+  className?: string;
+  containerClassName?: string;
 }) {
   return (
     <RotatingText
@@ -36,17 +36,27 @@ function BannerRotatingLine({
       y={BANNER_TEXT_Y}
       transition={bannerTextTransition(delay)}
       containerClassName={cn("block w-full min-w-0 py-0.5", containerClassName)}
-      className="block w-full"
+      className="block w-full min-w-0 max-w-full"
     >
-      <p className={cn("bl-swiper-main-banner__text-shadow", className)}>
+      <p
+        className={cn("bl-swiper-main-banner__text-shadow truncate", className)}
+      >
         {children}
       </p>
     </RotatingText>
-  )
+  );
 }
 
-function headlineClass(weight: "bold" | "light", size: "desktop" | "mobile") {
-  const weightClass = weight === "bold" ? "font-bold" : "font-light";
+function headlineClass(
+  weight: "bold" | "light" | "medium",
+  size: "desktop" | "mobile",
+) {
+  const weightClass =
+    weight === "bold"
+      ? "font-bold"
+      : weight === "light"
+        ? "font-light"
+        : "font-medium"; // font-md
   if (size === "desktop") {
     return cn("text-white", weightClass, "text-2xl/[1.4] lg:text-[30px]/[1.4]");
   }
@@ -60,7 +70,7 @@ export function MainBannerSlideCopy({
   slide: MainBannerSlide;
   activeIndex: number;
 }) {
-  const weight = slide.headlineWeight ?? "light";
+  const weight = slide.headlineWeight ?? "medium";
   const deskClass = headlineClass(weight, "desktop");
   const mobClass = headlineClass(weight, "mobile");
   const [desk1, desk2] = slide.headlines.desktop;
@@ -68,16 +78,16 @@ export function MainBannerSlideCopy({
   const keyBase = `${slide.key}-${activeIndex}`;
 
   return (
-    <div className="pointer-events-none flex flex-col gap-2">
+    <div className="pointer-events-none flex w-full min-w-0 flex-col gap-2">
       <BannerRotatingLine
         motionKey={`${keyBase}-episode`}
         delay={EPISODE_DELAY}
-        className="text-base font-semibold text-white lg:text-xl lg:font-extrabold"
+        className="text-base font-extrabold text-white lg:text-xl"
       >
         {parseMainBannerTitleMarkup(slide.episode)}
       </BannerRotatingLine>
 
-      <div className="hidden flex-col gap-0 text-white lg:flex">
+      <div className="hidden w-full min-w-0 flex-col gap-0 text-white lg:flex">
         <BannerRotatingLine
           motionKey={`${keyBase}-l1`}
           delay={HEADLINE_L1_DELAY}
@@ -93,7 +103,7 @@ export function MainBannerSlideCopy({
           {parseMainBannerTitleMarkup(desk2)}
         </BannerRotatingLine>
       </div>
-      <div className="flex flex-col gap-0 text-white lg:hidden">
+      <div className="flex w-full min-w-0 flex-col gap-0 text-white lg:hidden">
         <BannerRotatingLine
           motionKey={`${keyBase}-mob-l1`}
           delay={HEADLINE_L1_DELAY}

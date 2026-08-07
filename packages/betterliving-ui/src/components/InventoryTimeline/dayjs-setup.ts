@@ -10,12 +10,13 @@ dayjs.locale("ko");
 
 export { dayjs };
 
+/** Default viewport: calendar year so RCT `getMinUnit` picks month columns. */
 export function getInventoryTimelineDefaultDateStart(): string {
-  return dayjs().startOf("month").format("YYYY-MM-DD");
+  return dayjs().startOf("year").format("YYYY-MM-DD");
 }
 
 export function getInventoryTimelineDefaultDateEnd(): string {
-  return dayjs().endOf("month").format("YYYY-MM-DD");
+  return dayjs().endOf("year").format("YYYY-MM-DD");
 }
 
 export function verticalLineClassNamesForToday(startMs: number, endMs: number): string[] {

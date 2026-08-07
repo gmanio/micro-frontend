@@ -21,6 +21,7 @@ ADRs live **only** in this folder: `docs/adr/`.
 | [0012](./0012-https-local-next-dev.md) | HTTPS for local Next.js Multi-Zones | Accepted |
 | [0013](./0013-storybook-zone-hmr-dev.md) | Storybook zone HMR in local dev | Accepted |
 | [0014](./0014-betterliving-ui-docs-site.md) | Standalone Fumadocs docs (betterliving-ui) | Superseded |
+| [0016](./0016-betterliving-ui-optional-peers.md) | betterliving-ui optional feature peer deps | Accepted |
 | [0015](./0015-betterliving-sdk-docs.md) | Better Living SDK docs-first + independent package | Accepted |
 
 ## When to write

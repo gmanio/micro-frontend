@@ -30,6 +30,8 @@ export type UnitCardData = {
   title: string
   options: string
   description?: string
+  originAmount?: string
+  percent?: string
   totalAmount: string
   month: string
   imgs: string[]
@@ -38,8 +40,16 @@ export type UnitCardData = {
   href?: string
 }
 
-export type UnitCardProps = React.ComponentProps<"a"> & {
+export type UnitCardProps = React.ComponentProps<"div"> & {
   data: UnitCardData
+  /** When set (or `data.href`), wraps the card in an anchor. */
+  href?: string
+  as?: React.ElementType
+  textTheme?: "light" | "dark"
+  /** Replaces the default totalAmount + month row. */
+  price?: React.ReactNode
+  isPriceLoading?: boolean
+  lazyRootMargin?: string
 }
 
 export function formatWon(amount: number) {
@@ -57,7 +67,7 @@ function getUnitLabels(unit: Unit, locale: Locale): string[] {
 
 export function toUnitCardData(
   unit: Unit,
-  locale: Locale = "ko"
+  locale: Locale = "ko",
 ): UnitCardData {
   const description = unit.serviceTitle1[locale]?.trim()
 

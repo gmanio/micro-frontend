@@ -79,7 +79,7 @@ export function mapMainBannerPublicItemToSlide(
       desktop: [line1, line2],
       mobile: [line1, line2],
     },
-    headlineWeight: options.headlineWeight ?? "bold",
+    headlineWeight: options.headlineWeight ?? "medium",
     desktopImageFit: options.desktopImageFit,
     mobileImageFit: options.mobileImageFit,
     highPriority: options.highPriority,

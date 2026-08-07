@@ -16,7 +16,7 @@ export function MainBannerProgress({
   const segmentPct = 100 / total
 
   return (
-    <div className="pointer-events-auto relative z-[12] w-[194px] max-w-full shrink-0">
+    <div className="relative z-[12] w-[194px] max-w-full shrink-0">
       <div
         className="pointer-events-none absolute top-1/2 right-0 left-0 h-0.5 -translate-y-1/2 overflow-hidden rounded-full bg-[rgba(217,217,217,0.5)]"
         aria-hidden
@@ -43,7 +43,7 @@ export function MainBannerProgress({
             role="tab"
             aria-selected={activeIndex === i}
             aria-label={`${i + 1} / ${total}`}
-            className="h-11 min-h-11 flex-1 cursor-pointer border-0 bg-transparent p-0"
+            className="bl-swiper-main-banner__interactive h-11 min-h-11 flex-1 border-0 bg-transparent p-0"
             onClick={() => onSelectSlide(i)}
           />
         ))}

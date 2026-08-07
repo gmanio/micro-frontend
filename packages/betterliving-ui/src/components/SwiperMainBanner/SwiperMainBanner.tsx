@@ -1,45 +1,45 @@
-"use client"
+"use client";
 
-import { useCallback, useRef, useState } from "react"
-import { Autoplay } from "swiper/modules"
-import { Swiper, SwiperSlide, type SwiperClass } from "swiper/react"
+import { useCallback, useRef, useState } from "react";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide, type SwiperClass } from "swiper/react";
 
-import { cn } from "../../lib/utils"
-import { MainBannerProgress } from "./MainBannerProgress"
-import { MainBannerSlideCopy } from "./MainBannerSlideCopy"
+import { cn } from "../../lib/utils";
+import { MainBannerProgress } from "./MainBannerProgress";
+import { MainBannerSlideCopy } from "./MainBannerSlideCopy";
 import type {
   MainBannerImageFit,
   MainBannerSlide,
   SwiperMainBannerProps,
-} from "./types"
+} from "./types";
 
 function imageFitClass(fit: MainBannerImageFit | undefined): string {
-  if (fit === "cover") return "bl-swiper-main-banner__image-cover"
-  if (fit === "gasan") return "bl-swiper-main-banner__image-gasan"
-  return "absolute inset-0 size-full max-w-none object-cover"
+  if (fit === "cover") return "bl-swiper-main-banner__image-cover";
+  if (fit === "gasan") return "bl-swiper-main-banner__image-gasan";
+  return "absolute inset-0 size-full max-w-none object-cover";
 }
 
 function SlideBackground({
   slide,
   isEn,
 }: {
-  slide: MainBannerSlide
-  isEn: boolean
+  slide: MainBannerSlide;
+  isEn: boolean;
 }) {
-  const mobileSrc = isEn ? slide.mobileEn : slide.mobileKo
+  const mobileSrc = isEn ? slide.mobileEn : slide.mobileKo;
 
   return (
     <div
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden
     >
-      <div className="absolute z-[100] h-full w-full bg-[linear-gradient(0deg,rgba(0,0,0,.12),rgba(0,0,0,.12)),linear-gradient(354.23deg,rgba(0,0,0,.3)_4.58%,rgba(0,0,0,0)_95.4%)]" />
+      <div className="bl-swiper-main-banner__scrim absolute z-[100] h-full w-full" />
       <img
         src={mobileSrc}
         alt=""
         className={cn(
           "bl-swiper-main-banner__img-mobile",
-          imageFitClass(slide.mobileImageFit)
+          imageFitClass(slide.mobileImageFit),
         )}
       />
       <img
@@ -48,11 +48,11 @@ function SlideBackground({
         fetchPriority={slide.highPriority ? "high" : undefined}
         className={cn(
           "bl-swiper-main-banner__img-desktop",
-          imageFitClass(slide.desktopImageFit)
+          imageFitClass(slide.desktopImageFit),
         )}
       />
     </div>
-  )
+  );
 }
 
 export function SwiperMainBanner({
@@ -62,36 +62,36 @@ export function SwiperMainBanner({
   className,
   onCtaClick,
 }: SwiperMainBannerProps) {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const swiperRef = useRef<SwiperClass | null>(null)
-  const isEn = locale === "en"
-  const current = slides[activeIndex] ?? slides[0]
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<SwiperClass | null>(null);
+  const isEn = locale === "en";
+  const current = slides[activeIndex] ?? slides[0];
 
   const onSlideChange = useCallback((swiper: SwiperClass) => {
-    setActiveIndex(swiper.realIndex)
-  }, [])
+    setActiveIndex(swiper.realIndex);
+  }, []);
 
   const goToSlide = useCallback((index: number) => {
-    swiperRef.current?.slideToLoop(index)
-  }, [])
+    swiperRef.current?.slideToLoop(index);
+  }, []);
 
   const handleCta = useCallback(
     (slide: MainBannerSlide, index: number) => {
       if (onCtaClick) {
-        onCtaClick(slide, index)
-        return
+        onCtaClick(slide, index);
+        return;
       }
       if (slide.externalFl) {
-        window.open(slide.href, "_blank", "noopener,noreferrer")
-        return
+        window.open(slide.href, "_blank", "noopener,noreferrer");
+        return;
       }
-      window.location.assign(slide.href)
+      window.location.assign(slide.href);
     },
-    [onCtaClick]
-  )
+    [onCtaClick],
+  );
 
   if (slides.length === 0 || !current) {
-    return null
+    return null;
   }
 
   return (
@@ -100,7 +100,7 @@ export function SwiperMainBanner({
         className={cn(
           "h-full w-full",
           "[&_.swiper-wrapper]:h-full",
-          "[&_.swiper-slide]:h-full"
+          "[&_.swiper-slide]:h-full",
         )}
         modules={[Autoplay]}
         loop={slides.length > 1}
@@ -110,8 +110,8 @@ export function SwiperMainBanner({
         }}
         onSlideChange={onSlideChange}
         onSwiper={(swiper) => {
-          swiperRef.current = swiper
-          setActiveIndex(swiper.realIndex)
+          swiperRef.current = swiper;
+          setActiveIndex(swiper.realIndex);
         }}
       >
         {slides.map((slide) => (
@@ -123,7 +123,7 @@ export function SwiperMainBanner({
         ))}
       </Swiper>
 
-      <div className="pointer-events-none absolute inset-0 z-10 mx-auto flex min-h-0 max-w-[1280px] flex-col px-4">
+      <div className="bl-swiper-main-banner__ui mx-auto flex min-h-0 max-w-[1280px] flex-col px-4">
         <div className="flex min-h-0 flex-1 flex-col items-start justify-center">
           <div className="flex w-full max-w-[596px] flex-col">
             <div className="mt-20 flex flex-col gap-7">
@@ -132,7 +132,7 @@ export function SwiperMainBanner({
               <button
                 type="button"
                 onClick={() => handleCta(current, activeIndex)}
-                className="pointer-events-auto z-[5] inline-flex h-10 w-fit cursor-pointer items-center justify-center rounded-xl bg-black px-5 py-2 shadow-[2px_2px_8px_0px_rgba(0,0,0,0.2)] lg:h-auto"
+                className="bl-swiper-main-banner__interactive inline-flex h-10 w-fit items-center justify-center rounded-xl bg-black px-5 py-2 shadow-[2px_2px_8px_0px_rgba(0,0,0,0.2)] lg:h-auto"
               >
                 <span className="text-sm/[1.4] leading-6 font-bold text-white lg:text-base/[1.4]">
                   {current.cta}
@@ -142,7 +142,7 @@ export function SwiperMainBanner({
           </div>
         </div>
 
-        <div className="pointer-events-none flex w-full max-w-[596px] shrink-0 flex-col items-start pt-7 pb-4">
+        <div className="flex w-full max-w-[596px] shrink-0 flex-col items-start pt-7 pb-4">
           <MainBannerProgress
             activeIndex={activeIndex}
             total={slides.length}
@@ -151,5 +151,5 @@ export function SwiperMainBanner({
         </div>
       </div>
     </div>
-  )
+  );
 }

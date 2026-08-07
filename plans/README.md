@@ -34,6 +34,10 @@ todos:
 
 | File | Name | Status | Created |
 |------|------|--------|---------|
+| [2026-08-07_111210-security-pin-keypad.plan.md](./2026-08-07_111210-security-pin-keypad.plan.md) | SecurityPinKeypad UI component | completed | 2026-08-07T11:12:10+09:00 |
+| [2026-08-07_094634-product-unit-card-align.plan.md](./2026-08-07_094634-product-unit-card-align.plan.md) | ProductCard + UnitCard warp-ui align | completed | 2026-08-07T09:46:34+09:00 |
+| [2026-08-06_094432-betterliving-ui-optional-peers.plan.md](./2026-08-06_094432-betterliving-ui-optional-peers.plan.md) | betterliving-ui optional peer deps | completed | 2026-08-06T09:44:32+09:00 |
+| [2026-08-05_101024-inventory-timeline-default-month.plan.md](./2026-08-05_101024-inventory-timeline-default-month.plan.md) | InventoryTimeline default month zoom | completed | 2026-08-05T10:10:24+09:00 |
 | [2026-08-03_135134-main-banner-api-map.plan.md](./2026-08-03_135134-main-banner-api-map.plan.md) | Main banner API map util | completed | 2026-08-03T13:51:34+09:00 |
 | [2026-08-03_134754-swiper-main-banner-ui.plan.md](./2026-08-03_134754-swiper-main-banner-ui.plan.md) | SwiperMainBanner UI | completed | 2026-08-03T13:47:54+09:00 |
 | [2026-07-31_162212-betterliving-ui-deps-latest.plan.md](./2026-07-31_162212-betterliving-ui-deps-latest.plan.md) | betterliving-ui deps latest + build | completed | 2026-07-31T16:22:12+09:00 |

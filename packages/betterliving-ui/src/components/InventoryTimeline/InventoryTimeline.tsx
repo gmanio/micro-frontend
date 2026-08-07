@@ -101,15 +101,12 @@ function buildSelectPayload(
   };
 }
 
-/** Secondary header: `24(금)` — dayjs locale weekday */
-function formatTimelineDayLabel(
-  [start]: [Dayjs, Dayjs],
-  unit: string,
-): string {
+/** Secondary header labels by RCT unit (day when zoomed in, month by default). */
+function formatTimelineDayLabel([start]: [Dayjs, Dayjs], unit: string): string {
   if (unit === "day") {
     return start.format("DD(ddd)");
   }
-  if (unit === "month") return start.format("MMMM");
+  if (unit === "month") return start.format("M월");
   if (unit === "year") return start.format("YYYY");
   return start.format("DD(ddd)");
 }
@@ -377,7 +374,12 @@ export function InventoryTimeline({
               </div>
             );
           }}
-          itemRenderer={({ item, itemContext, getItemProps, timelineContext }) => {
+          itemRenderer={({
+            item,
+            itemContext,
+            getItemProps,
+            timelineContext,
+          }) => {
             const custom = item as TimelineItem;
             const itemHeight =
               itemContext.dimensions.height ?? ITEM_DEFAULT_HEIGHT;

@@ -1,0 +1,11 @@
+.bl-product-card__swiper .swiper-button-prev,
+.bl-product-card__swiper .swiper-button-next {
+  opacity: 0;
+  color: #fff;
+}
+
+.bl-product-card__swiper .swiper-button-prev.swiper-button-disabled,
+.bl-product-card__swiper .swiper-button-next.swiper-button-disabled {
+  opacity: 0;
+  color: #99999d;
+}

@@ -1,3 +1,4 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
 import { fileURLToPath } from "node:url";
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 import tailwindcss from "@tailwindcss/vite";
@@ -56,6 +57,18 @@ const config: StorybookConfig = {
           {
             find: "@dndproperty/betterliving-ui/swiper-main-banner.css",
             replacement: path.join(betterlivingUiSrc, "styles/swiper-main-banner.css"),
+          },
+          {
+            find: "@dndproperty/betterliving-ui/unit-card.css",
+            replacement: path.join(betterlivingUiSrc, "styles/unit-card.css"),
+          },
+          {
+            find: "@dndproperty/betterliving-ui/product-card.css",
+            replacement: path.join(betterlivingUiSrc, "styles/product-card.css"),
+          },
+          {
+            find: "@dndproperty/betterliving-ui/security-pin-keypad.css",
+            replacement: path.join(betterlivingUiSrc, "styles/security-pin-keypad.css"),
           },
           {
             find: "@dndproperty/betterliving-ui/globals.css",
